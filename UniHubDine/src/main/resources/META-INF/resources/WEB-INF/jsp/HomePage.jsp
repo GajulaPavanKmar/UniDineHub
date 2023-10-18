@@ -1,54 +1,475 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHubDine</title>
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="shortcut icon" type="image" href="/images/homepage/logo.png">
+    <!-- bootstrap links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+    <!-- bootstrap links -->
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@500&display=swap" rel="stylesheet">
+    <!-- fonts -->
 
-<title>UniDineHub</title>
+    <!-- icons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- icons -->
+
+    <!-- animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- animation -->
 </head>
+<body>
+    <div class="main-content"  data-aos="fade-down"
+    data-aos-easing="linear"
+    data-aos-duration="1500">      
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <nav class="navbar navbar-expand-md" id="navbar-color"  data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">   
+
+            <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#" id="logo">Uni<span>HubDine</span><img src="/images/homepage/logo.jpg" alt="" width="40px" height="30px"> </a>
+          
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span><img src="/images/homepage/menu.png" alt=""></span>
+            </button>
+          
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar" >
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Menu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Partners</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About US</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Locations</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Gallary</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+
+            <div id="btn"><a href="#"><button>Sign In</button></a></div>
+
+        </div>
+          </nav>
+
+      
+
+          <!-- navbar end -->
+
+
+          <!-- home section -->
+          <section class="home" id="home" >
+
+            <div class="content">
+                <h3>Enjoy Your Healthy
+                    <br>Delicious Food
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quod.
+                    <br> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                </p>
+                <a href="#" class="btn">Order Now</a>
+                
+            </div>
+            <div class="img">
+                <img src="/images/homepage/background.png" alt="">
+            </div>
+          </section>
+          <!-- home section -->
+          
+    </div>
+    <!-- main content end -->
 
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">UniHubDine</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-      <!-- ml-auto still works just fine-->
-      <div class="navbar-nav ml-auto">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Partners</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Locations</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Sign in</a></li>
-			</ul>
+
+    <!-- dishes content -->
+    <div class="container" id="dishe" data-aos="fade-up"
+    data-aos-duration="1500">
+        <h1 class="text-center">DISHES</h1>
+        <div class="row" style="margin-top: 50px;" data-aos="fade-up"
+     data-aos-duration="3000">
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/salad.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Best Salad</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$100.50 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/chicken chow.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Chicken Chow</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$200.30 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/grilled chicken.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Grilled Chicken</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$50.50 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/chicken.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Chicken Dishe</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$300.20 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="row" style="margin-top: 50px;" data-aos="fade-up"
+        data-aos-duration="1500">
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/noodles.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Fresh Noodles</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$100.10 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/pasta.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Best Pasta</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$50.10 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/steaks vagitable.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">Steaks Vagitabl</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$100.50 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/white fish.png" alt="">
+                    <div class="card-body">
+                        <h3 class="text-center">White Fish</h3>
+                        <div class="star text-center">
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                         <i class="bx bxs-star checked"></i>
+                        </div>
+                        <h6>$500.50 <span><img src="/images/homepage/add.png" alt="" width="20px"></span></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- dishes content -->
+
+
+
+
+    <!-- menu section -->
+    <div class="container" id="menu" data-aos="fade-up"
+    data-aos-duration="1500">
+        <h1 class="text-center">MENU</h1>
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-6 py-3 py-md-0">
+                <p style="margin-top: 30px;"><img src="/images/homepage/greek-salad.jpg" alt="" width="50px"><span>Greek sallad.</span>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <p style="margin-top: 30px;"><img src="/images/homepage/steaks vagitable.png" alt="" width="50px"><span>Steaks Vagitable</span>Lorem ipsum dolor sit amet  adipisicing.</p>
+                <p style="margin-top: 30px;"><img src="/images/homepage/chicken chow.png" alt="" width="50px"><span>Chicken Chow</span>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                <p style="margin-top: 30px;"><img src="/images/homepage/pasta.png" alt="" width="50px"><span>Pasta</span>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+            </div>
+            <div class="col-md-6 py-3 py-md-0">
+                <p style="margin-top: 30px;"><img src="/images/homepage/caesar.jpg" alt="" width="50px"><span>Caesar</span>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                <p style="margin-top: 30px;"><img src="/images/homepage/bread-barrel.jpg" alt="" width="50px"><span>Bread Barrel</span>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                <p style="margin-top: 30px;"><img src="/images/homepage/cake.jpg" alt="" width="50px"><span>Cake</span>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <p style="margin-top: 30px;"><img src="/images/homepage/noodles.png" alt="" width="50px"><span>Noodles</span>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+            </div>
+        </div>
+    </div>
+    <!-- menu section -->
+
+    <!-- .chefs -->
+    <div class="container" id="chefs" data-aos="fade-up"
+    data-aos-duration="1500">
+        <h1 class="text-center">CHEF</h1>
+        <div class="row">
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/chef.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-8 py-3 py-md-0">
+                <h2>Mr Chef</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestias porro fuga necessitatibus minus atque, alias eaque animi delectus nostrum libero beatae doloribus eligendi aperiam. Corporis, laudantium. Ea, consequuntur. Maiores tempora, qui voluptatem ipsa reprehenderit quasi ut tenetur, neque quo repellat consequatur dolore totam vel ab excepturi unde. Totam veniam dolor modi doloremque? Dignissimos fuga debitis deserunt alias tempora, aut itaque distinctio rem magnam ipsa rerum corrupti quis beatae, architecto minima quo harum officia ducimus! Unde, pariatur quibusdam accusantium sapiente exercitationem doloribus ipsam, quisquam qui quod laudantium ullam. Error dolore, exercitationem placeat, hic delectus dolorem illum nisi molestias quidem unde ad dolorum dignissimos quas saepe vero voluptatem eveniet nobis velit maiores natus. Sit quia ratione et deleniti molestiae animi modi.</p>
+            </div>
+        </div>
+    </div>
+    <!-- .chefs -->
+    
+    <!-- gallary -->
+    <div class="container" id="gallary" data-aos="fade-up"
+    data-aos-duration="1500">
+        <h1 class="text-center">GALLARY</h1>
+        <div class="row">
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/r1.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/r2.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <div class="card">
+                    <img src="/images/homepage/r3.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- gallary -->
+
+    <!-- book a table -->
+    <div class="container" id="book-table" data-aos="fade-up"
+    data-aos-duration="1500">
+        <h1 class="text-center">BOOK A TABLE</h1>
+        <div class="row">
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Name">
+                <input type="date" class="form-control form-control" placeholder="Date">
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="email" class="form-control form-control" placeholder="Email">
+                <input type="time" class="form-control form-control" placeholder="Time">
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="number" class="form-control form-control" placeholder="Phone">
+                <input type="text" class="form-control form-control" placeholder="# Of People">
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px;">
+            <textarea class="form-control" rows="5" id="comment" placeholder="Message"></textarea>
+        </div>
+        <div id="btntable" class="text-center"><button>Book a Table</button></div>
+    </div>
+    <!-- book a table -->
+
+    <!-- about us -->
+    <div class="container" id="about" data-aos="fade-up"
+    data-aos-duration="1500">
+      <h1 class="text-center">ABOUT US</h1>
+      <div class="row">
+        <div class="col-md-6 py-3 py-md-0">
+            <div class="card">
+                <img src="/images/homepage/about.png" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 py-3 py-md-0">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi atque quam doloribus eum culpa! Reprehenderit temporibus rerum quam illo corporis? Velit exercitationem minima ratione? Facilis omnis iusto, quos architecto cum quae sed mollitia, error velit, laboriosam officia? Facilis eius, molestiae debitis illo ipsa velit praesentium recusandae iusto amet reiciendis consequatur, corrupti perferendis quisquam illum mollitia tempore ratione numquam placeat maiores. Atque ducimus nulla architecto molestias ex exercitationem voluptatibus, esse labore officia. Vitae eveniet, dolore cupiditate suscipit a commodi porro quidem blanditiis animi, cumque quam sint quod laboriosam nihil quibusdam quas ipsam. Architecto ex tenetur velit esse officia excepturi eum adipisci.</p>
+
+            <div id="btnrd"><button>Read More...</button></div>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+    <!-- about us -->
+    
+    <!-- contact us -->
+    <div class="container" id="contact" data-aos="fade-up"
+    data-aos-duration="1500">
+        <h1 class="text-center">
+            CONTACT US
+        </h1>
+        <div class="row">
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Name">
+                
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="email" class="form-control form-control" placeholder="Email">
+                
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="number" class="form-control form-control" placeholder="Phone">
+                
+            </div>
+        </div>
+        
+        <div class="form-group" style="margin-top: 30px;">
+            <textarea class="form-control" rows="5" id="comment" placeholder="Message"></textarea>
+        </div>
+        <div id="btntable" class="text-center"><button>Message</button></div>
+
+    </div>
+    <!-- contact us -->
+
+    <!-- footer -->
+    <footer id="footer" style="margin-top: 50px;" data-aos="fade-up"
+    data-aos-duration="1500">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3>F Restaurant</h3>
+                        <p>
+                            Karachi <br><br>
+                            Sindh <br><br>
+                            Pakistan <br><br>
+                        </p>
+                        <strong>Phone: <strong>+00000000000000000000</strong></strong>
+                        <strong>Email: <strong>info@F-Restaurant.com</strong></strong>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                       <h4>Usefull Links</h4>
+                       <ul>
+                        <li><i class="bx bx-chevron-right"><a href="#">Home</a></i></li>
+                        <li><i class="bx bx-chevron-right"><a href="#">About</a></i></li>
+                        <li><i class="bx bx-chevron-right"><a href="#">Contact</a></i></li>
+                        <li><i class="bx bx-chevron-right"><a href="#">Services</a></i></li>
+                        <li><i class="bx bx-chevron-right"><a href="#">Privacy Policay</a></i></li>
+                       </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, molestias!
+                            <ul>
+                                <li><i class="bx bx-chevron-right"><a href="#">Dishes</a></i></li>
+                                <li><i class="bx bx-chevron-right"><a href="#">Chicken</a></i></li>
+                                <li><i class="bx bx-chevron-right"><a href="#">Fish</a></i></li>
+                                <li><i class="bx bx-chevron-right"><a href="#">Burger</a></i></li>
+                                <li><i class="bx bx-chevron-right"><a href="#">Pizza</a></i></li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Socail Network</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, ducimus.</p>
+                        <div class="socail-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="bx bxl-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>F Restaurant</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed By <a href="#">SA coding</a>
+            </div>
+        </div>
+    </footer>
+    <!-- footer -->
 
 
-<!--bootstrap 5 -->
-<!-- JavaScript and dependencies -->
-<script src=" https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity=" sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin=" anonymous "></script>
-<script src=" https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js " integrity=" sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/ " crossorigin=" anonymous "></script>
+
+    <a href="#" class="arrow"><i><img src="/images/homepage/up-arrow.png" alt="" width="50px"></i></a>
 
 
 
-<body>
 
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+      
 </body>
 </html>
