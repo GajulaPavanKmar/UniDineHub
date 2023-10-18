@@ -87,8 +87,7 @@
                 <h3>Enjoy Your Healthy
                     <br>Delicious Food
                 </h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quod.
-                    <br> Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                <p>One University one restaurant 
                 </p>
                 <a href="#" class="btn">Order Now</a>
                 
@@ -108,7 +107,7 @@
     <!-- dishes content -->
     <div class="container" id="dishe" data-aos="fade-up"
     data-aos-duration="1500">
-        <h1 class="text-center">DISHES</h1>
+        <h1 class="text-center">MENU</h1>
         <div class="row" style="margin-top: 50px;" data-aos="fade-up"
      data-aos-duration="3000">
             <div class="col-md-3 py-3 py-md-0">
@@ -279,16 +278,18 @@
     <!-- .chefs -->
     <div class="container" id="chefs" data-aos="fade-up"
     data-aos-duration="1500">
-        <h1 class="text-center">CHEF</h1>
+        <h1 class="text-center">About Us</h1>
         <div class="row">
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="/images/homepage/chef.png" alt="">
-                </div>
-            </div>
-            <div class="col-md-8 py-3 py-md-0">
-                <h2>Mr Chef</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestias porro fuga necessitatibus minus atque, alias eaque animi delectus nostrum libero beatae doloribus eligendi aperiam. Corporis, laudantium. Ea, consequuntur. Maiores tempora, qui voluptatem ipsa reprehenderit quasi ut tenetur, neque quo repellat consequatur dolore totam vel ab excepturi unde. Totam veniam dolor modi doloremque? Dignissimos fuga debitis deserunt alias tempora, aut itaque distinctio rem magnam ipsa rerum corrupti quis beatae, architecto minima quo harum officia ducimus! Unde, pariatur quibusdam accusantium sapiente exercitationem doloribus ipsam, quisquam qui quod laudantium ullam. Error dolore, exercitationem placeat, hic delectus dolorem illum nisi molestias quidem unde ad dolorum dignissimos quas saepe vero voluptatem eveniet nobis velit maiores natus. Sit quia ratione et deleniti molestiae animi modi.</p>
+            <div class="col-md-12 py-3 py-md-0">
+                <h2>Our Vision</h2>
+                <p>Welcome to UniDineHub, where you find the best food at the best prices! 
+                Dive into a world of on-campus dining options, compare prices, and make smart, budget-friendly choices without compromising on taste.</p>
+            <h2>Our Mission</h2>
+                <p>To revolutionize university dining by offering a transparent, comparative, and 
+                user-friendly platform that places the power of choice and savings right at your fingertips</p>
+           <h2>Upcoming Features</h2>
+                <p>Classroom Delivery: We understand how packed a student's schedule can be. That's why we're soon launching our classroom delivery feature. 
+                Order your favorite dish and have it delivered discreetly to your class without any interruptions. Dining made convenient like never before!</p>
             </div>
         </div>
     </div>
