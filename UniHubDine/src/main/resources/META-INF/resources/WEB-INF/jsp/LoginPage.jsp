@@ -17,18 +17,19 @@
         <div class="col-md-6">
             <div class="login-card">
                 <h2>Welcome Back!</h2>
-                <form action="YOUR_LOGIN_ENDPOINT" method="post">
+                <h2>${errorMsg}</h2>
+                <form  method="post">
                     <div class="mb-4">
                         <label for="login-username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="login-username" name="login-username" placeholder="Enter your username" required>
+                        <input type="text" class="form-control" id="userId" name="userId" placeholder="Enter your username" required>
                     </div>
 
                     <div class="mb-4">
                         <label for="login-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="login-password" name="login-password" placeholder="Enter your password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                     </div>
 
-                    <button type="submit" class="btn btn-block">Log In</button>
+                    <button class="btn btn-block">Log In</button>
                 </form>
                 <p class="text-center">New here? <a href="signup">Create an account</a></p>
             </div>
