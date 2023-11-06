@@ -18,7 +18,7 @@
             <div class="login-card">
                 <h2>Welcome Back!</h2>
                 <h2>${errorMsg}</h2>
-                <form  method="post">
+                <form  method="post" action="login">
                     <div class="mb-4">
                         <label for="login-username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="userId" name="userId" placeholder="Enter your username" required>

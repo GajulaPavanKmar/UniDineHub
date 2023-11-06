@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,24 +18,30 @@
         <div class="col-md-6">
             <div class="login-card">
                 <h2>Create Your Account</h2>
-                <form action="YOUR_SIGNUP_ENDPOINT" method="post">
+                <c:if test="${not empty errorMsg }">
+                 <div class="alert alert-danger" role="alert">${errorMsg}</div>
+                </c:if>
+                 <c:if test="${not empty successMsg }">
+                 <div class="alert alert-success" role="alert">${successMsg}</div>
+                </c:if>
+                <form:form  method="post" modelAttribute="user">
                     <div class="mb-4">
                         <label for="signup-username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="signup-username" name="signup-username" placeholder="Choose a username" required>
+                        <form:input type="text" class="form-control" id="userId" path="userId" placeholder="Choose a username" required/>
                     </div>
 
-                    <div class="mb-4">
+                    <%-- <div class="mb-4">
                         <label for="signup-email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="signup-email" name="signup-email" placeholder="Enter your email" required>
-                    </div>
+                        <form:input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required/>
+                    </div> --%>
 
                     <div class="mb-4">
                         <label for="signup-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="signup-password" name="signup-password" placeholder="Choose a password" required>
+                        <form:input type="password" class="form-control" id="password" name="password" placeholder="Choose a password" required/>
                     </div>
 
                     <button type="submit" class="btn btn-block">Sign Up</button>
-                </form>
+                </form:form>
                 <p class="text-center">Already have an account? <a href="login">Log In</a></p>
             </div>
         </div>

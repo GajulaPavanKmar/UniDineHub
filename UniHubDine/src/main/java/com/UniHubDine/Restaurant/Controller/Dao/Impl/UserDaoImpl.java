@@ -1,11 +1,14 @@
 package com.UniHubDine.Restaurant.Controller.Dao.Impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -37,6 +40,23 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 				user.setUserId(userId);
 				user.setPassword(rs.getString(1));
 				return user;
+			}
+		});
+	}
+	@Override
+	public int createNewUser(User user) {
+		// TODO Auto-generated method stub
+		String sql = "insert into user(user_id, user_pwd) values(?,?);";
+		
+		return getJdbcTemplate().update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				// TODO Auto-generated method stub
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setString(1, user.getUserId());
+				ps.setString(2, user.getPassword());
+				return ps;
 			}
 		});
 	}
