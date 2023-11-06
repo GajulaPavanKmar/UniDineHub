@@ -34,7 +34,6 @@ public class UserController {
 		try {
 		if(user.getPassword().equals(password)) {
 			model.put("userId", userId);
-			System.out.println("The password is "+user.getPassword());
 			return "WelcomePage";
 		}
 		model.put("errorMsg", "Please provide the correct details");

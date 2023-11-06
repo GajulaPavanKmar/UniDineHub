@@ -18,15 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@500&display=swap" rel="stylesheet">
-    <!-- fonts -->
 
-    <!-- icons -->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <!-- icons -->
-
-    <!-- animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- animation -->
 </head>
 <body>
     <div class="main-content"  data-aos="fade-down"
@@ -70,7 +62,7 @@
               </ul>
             </div>
 
-            <div id="btn"><a href="#"><button>Sign In</button></a></div>
+            <div id="btn"><a href="login"><button>Login In</button></a></div>
 
         </div>
           </nav>

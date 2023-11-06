@@ -46,7 +46,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	@Override
 	public int createNewUser(User user) {
 		// TODO Auto-generated method stub
-		String sql = "insert into user(user_id, user_pwd) values(?,?);";
+		String sql = "insert into user(user_id, user_pswd,user_email) values(?,?,?);";
 		
 		return getJdbcTemplate().update(new PreparedStatementCreator() {
 			
@@ -56,6 +56,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 				PreparedStatement ps = con.prepareStatement(sql);
 				ps.setString(1, user.getUserId());
 				ps.setString(2, user.getPassword());
+				ps.setString(3, user.getUseremail());
 				return ps;
 			}
 		});
