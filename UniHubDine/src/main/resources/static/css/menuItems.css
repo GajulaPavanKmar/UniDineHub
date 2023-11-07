@@ -1,0 +1,87 @@
+/* Base settings for body to ensure the font is consistent */
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: #f4f4f4; /* Light grey background */
+	color: #333;
+	line-height: 1.6;
+}
+
+/* Container and row adjustments for better spacing */
+.container {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+/* Overall card layout adjustments */
+.menu-item {
+	border-radius: 15px;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+	background-color: #ffffff;
+}
+
+.menu-item:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.card-img-top {
+	height: 5px; /* Smaller height */
+	object-fit: cover;
+	transition: transform 0.3s ease-in-out;
+	border-bottom: 1px solid #eee; /* subtle separator from the content */
+}
+
+.card-img-top:hover {
+	transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+/* Text and button styling */
+.card-body {
+	padding: 1rem;
+	text-align: center; /* Center align the text */
+}
+
+.card-title {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 0.5rem;
+}
+
+.card-text {
+	font-size: 0.95rem;
+	color: #666;
+	margin-bottom: 1rem;
+}
+
+/* Pricing and Add to Cart button alignment */
+.price {
+	font-weight: bold;
+	font-size: 1.1rem;
+	color: #eb5757; /* A vibrant color to highlight the price */
+	margin-bottom: 1rem;
+}
+
+.add-to-cart {
+	font-weight: 600;
+	color: #fff;
+	background-color: #eb5757; /* A color that stands out */
+	border: none;
+	border-radius: 20px; /* Rounded borders for the button */
+	padding: 0.5rem 1.5rem;
+	transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+	background-color: #cf4646; /* A slightly darker shade on hover */
+}
+
+/* Responsive adjustments */
+@media ( max-width : 768px) {
+	.card-img-top {
+		height: auto; /* Adjust height on smaller screens */
+	}
+}
