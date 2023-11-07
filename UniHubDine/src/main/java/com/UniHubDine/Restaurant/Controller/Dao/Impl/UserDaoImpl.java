@@ -30,7 +30,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	}
 	@Override
 	public User getUserById(String userId) {
-		String sql  = "select user_pswd from user where user_id =? ";
+		String sql  = "select user_pswd,user_email,firstname,lastname from user where user_id =? ";
 		
 		return getJdbcTemplate().queryForObject(sql, new Object[] {userId }, new RowMapper<User>() {
 			
@@ -39,6 +39,9 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 				User user = new User();
 				user.setUserId(userId);
 				user.setPassword(rs.getString(1));
+				user.setUseremail(rs.getString(2));
+				user.setFirstName(rs.getString(3));
+				user.setLastName(rs.getString(4));
 				return user;
 			}
 		});
@@ -46,7 +49,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	@Override
 	public int createNewUser(User user) {
 		// TODO Auto-generated method stub
-		String sql = "insert into user(user_id, user_pswd,user_email) values(?,?,?);";
+		String sql = "insert into user(user_id, user_pswd,user_email,firstname, lastname) values(?,?,?,?,?);";
 		
 		return getJdbcTemplate().update(new PreparedStatementCreator() {
 			
@@ -57,6 +60,9 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 				ps.setString(1, user.getUserId());
 				ps.setString(2, user.getPassword());
 				ps.setString(3, user.getUseremail());
+				ps.setString(4, user.getFirstName());
+				ps.setString(5, user.getLastName());
+
 				return ps;
 			}
 		});

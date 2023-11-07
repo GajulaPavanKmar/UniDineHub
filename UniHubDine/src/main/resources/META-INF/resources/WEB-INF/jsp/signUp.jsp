@@ -26,18 +26,25 @@
                 </c:if> --%>
                 <form:form  method="post" modelAttribute="user">
                     <div class="mb-4">
-                        <label for="signup-username" class="form-label">Username</label>
-                        <form:input type="text" class="form-control" path="userId" placeholder="Choose a username" />
+                        <label for="signup-username" class="form-label">LoginID</label>
+                        <form:input type="text" class="form-control" path="userId" placeholder="Choose a unique username" required />
                     </div>
-
+					<div class="mb-4">
+                        <label for="signup-username" class="form-label">FirstName</label>
+                        <form:input type="text" class="form-control" path="firstName" placeholder="Your Firstname" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label for="signup-username" class="form-label">LastName</label>
+                        <form:input type="text" class="form-control" path="lastName" placeholder="Your Lastname" required/>
+                    </div>
 					<div class="mb-4">
                         <label for="signup-email" class="form-label">Email address</label>
-                        <form:input type="email" class="form-control" path="useremail" placeholder="Enter email Address" />
+                        <form:input type="email" class="form-control" path="useremail" placeholder="Enter email Address" required/>
                     </div>
 
                     <div class="mb-4">
                         <label for="signup-password" class="form-label">Password</label>
-                        <form:input type="password" class="form-control" path="password" placeholder="Choose a password" />
+                        <form:input type="password" class="form-control" path="password" placeholder="Choose a password" required/>
                     </div>
 
                     <form:button type="submit" class="btn btn-block">Sign Up</form:button>
@@ -48,5 +55,16 @@
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.add-to-cart').click(function() {
+            const itemId = $(this).data('id');
+            console.log('Add to cart:', itemId);
+            // Implement add to cart functionality here
+            // For instance, making an AJAX call to your server-side cart handler
+        });
+    });
+
+    </script>
 </body>
 </html>
