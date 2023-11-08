@@ -27,7 +27,7 @@ public class UserController {
 		return "NewFile";
 	}
 
-	@RequestMapping("homepage")
+	@RequestMapping("/")
 	public String homePage() {
 		return "NewFile";
 	}
