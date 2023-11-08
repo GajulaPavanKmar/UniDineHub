@@ -21,15 +21,9 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping("home")
-	@GetMapping
-	public String homePage1() {
-		return "NewFile";
-	}
-
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public String homePage() {
-		return "NewFile";
+		return "HomePage";
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.GET)
