@@ -1,0 +1,3 @@
+Docker
+docker build -t unidinehub-app .
+docker run -p 8080:8080 unidinehub-app

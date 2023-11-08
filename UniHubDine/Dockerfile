@@ -1,5 +1,14 @@
-FROM eclipse-temurin:17-jdk-alphine
+# Use the correct base image
+FROM eclipse-temurin:17-jdk-alpine
+
+# Optional: Define a volume if you need to persist data
 VOLUME /tmp
-COPY target/*.jar app.jar
-ENTRYPOINT ["java", ".jar", "Restaurant-0.0.1-SNAPSHOT.jar"]
-EXPOSE 8080 
+
+# Copy the JAR file into the image
+COPY target/UniDineHub.jar app.jar
+
+# Define the entry point that runs the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Document that the service listens on port 8080
+EXPOSE 8080
