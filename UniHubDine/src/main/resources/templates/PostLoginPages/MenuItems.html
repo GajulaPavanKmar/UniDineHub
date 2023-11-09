@@ -4,7 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Drinks</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
+<link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
 <link rel="stylesheet" href="/css/menuItems.css">
 </head>
 <body>
@@ -35,69 +35,90 @@
 </nav>
 <div class="container mt-5">
     <h2 class="text-center mb-4">Drinks Menu</h2>
-<!-- Sort Buttons -->
-<div class="text-center mb-4">
-    <button onclick="sortItemsByPrice()" class="btn btn-secondary">Sort by Price</button>
-    <button onclick="sortItemsByName()" class="btn btn-secondary">Sort by Name</button>
-    <button onclick="sortItemsByDescription()" class="btn btn-secondary">Sort by Description</button>
-</div>
+    <!-- Sort Buttons -->
+    <div class="text-center mb-4">
+        <button id="sortByPrice" class="btn btn-secondary">Sort by Price</button>
+        <button id="sortByName" class="btn btn-secondary">Sort by Name</button>
+        <button id="sortByRestuarantName" class="btn btn-secondary">Sort by Restuarant Name</button>
+    </div>
 
-<div class="container mt-5">
-    <h2>Menu Items</h2>
-    <div class="row">
-        <!-- Loop through each menu item passed from the controller -->
-        <div class="col-md-4 mb-3" th:each="menuItem : ${menuItems}">
-            <div class="card h-100">
-<!--                 <img th:src="@{${menuItem.imageUrl}}" class="card-img-top" alt="Menu Item Image" th:alt="${menuItem.name}">
- -->                <div class="card-body">
-                    <h5 class="card-title" th:text="${menuItem.name}">Item Name</h5>
-                    <p class="card-text" th:text="${menuItem.description}">Item Description</p>
-                    <p class="card-text"><small class="text-muted" th:text="${menuItem.calories} + ' cal'">Calories</small></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-primary" th:text="'$' + ${menuItem.price}">Item Price</span>
- 							<a href="#" class="btn btn-primary addToCart" data-item-id="${menuItem.id}">Add to Cart<span class="item-count">0</span></a>
-                        </div>
+    <div class="container mt-5">
+        <h2>Menu Items</h2>
+        <!-- Inside your existing .row element -->
+<div class="row" id="menuItemsContainer">
+    <div th:each="menuItem : ${menuItems}" 
+         th:attr="data-price=${menuItem.price}, data-name=${menuItem.name},  data-restuarantName= ${menuItem.restuarantName}" 
+         class="col-md-4 mb-3" 
+         th:object="${menuItem}">
+        <div class="card h-100">
+<!--             <img th:src="@{${menuItem.imageUrl}}" class="card-img-top" alt="Menu Item Image" th:alt="${menuItem.name}">
+ -->            <div class="card-body">
+                <h5 class="card-title" th:text="${menuItem.name}">Item Name</h5>
+                <p class="card-text" th:text="${menuItem.restuarantName}">Restuarant Name</p>
+                <p class="card-text"><small class="text-muted" th:text="${menuItem.calories} + ' cal'">Calories</small></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="text-primary" th:text="'$' + ${menuItem.price}">Item Price</span>
+                    <a href="#" class="btn btn-primary addToCart" th:data-item-id="${menuItem.itemId}">Add to Cart<span class="item-count"></span></a>
                 </div>
             </div>
         </div>
+    </div> 
+</div>
+        
     </div>
 </div>
-</div>
-<script>
-var shoppingCart = [];
-
-function addToCartHandler(event) {
-    event.preventDefault();
-    
-    var itemId = event.target.getAttribute('data-item-id');
-    var selectedItem = menuItems.find(function(item) {
-        return item.id === itemId;
-    });
-
-    if (selectedItem) {
-        shoppingCart.push(selectedItem);
-        
-        // Update the item count displayed in the UI
-        var itemCountSpan = event.target.querySelector('.item-count');
-        if (itemCountSpan) {
-            var itemCount = shoppingCart.length;
-            itemCountSpan.textContent = itemCount;
-        }
-
-        alert('Item added to cart: ' + selectedItem.name);
-    } else {
-        alert('Item not found.');
-    }
-}
-
-var addToCartButtons = document.querySelectorAll('.addToCart');
-addToCartButtons.forEach(function(button) {
-    button.addEventListener('click', addToCartHandler);
-});
 
 
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+<script>
+// Sorting functions
+document.getElementById('sortByPrice').addEventListener('click', function() {
+    sortItems('price');
+});
+
+document.getElementById('sortByName').addEventListener('click', function() {
+    sortItems('name');
+});
+
+document.getElementById('sortByRestuarantName').addEventListener('click', function() {
+    sortItems('restuarantName');
+});
+
+function sortItems(attribute) {
+    let itemsArray = Array.from(document.querySelectorAll('.col-md-4.mb-3'));
+    itemsArray.sort(function(a, b) {
+        let aValue = a.getAttribute(`data-${attribute}`);
+        let bValue = b.getAttribute(`data-${attribute}`);
+        
+        if(attribute === 'price') {
+            return parseFloat(aValue) - parseFloat(bValue);
+        } else {
+            return aValue.localeCompare(bValue);
+        }
+    });
+
+    const menuContainer = document.getElementById('menuItemsContainer');
+    menuContainer.innerHTML = '';
+    itemsArray.forEach(function(item) {
+        menuContainer.appendChild(item);
+    });
+}
+
+// Attaching click event listeners to the sort buttons
+// This code assumes that you have buttons with id's 'sortByPrice', 'sortByName', and 'sortByDescription'
+document.getElementById('sortByPrice').onclick = function() {
+    sortItems('price');
+};
+
+document.getElementById('sortByName').onclick = function() {
+    sortItems('name');
+};
+
+document.getElementById('sortByRestuarantName').onclick = function() {
+    sortItems('restuarantName');
+};
+</script>
+
 </body>
 </html>

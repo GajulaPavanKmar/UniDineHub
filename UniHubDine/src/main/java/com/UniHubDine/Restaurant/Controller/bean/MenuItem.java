@@ -30,13 +30,24 @@ public class MenuItem {
 
     @Column(name = "image_url")
     private String imageUrl;
+    
+    @Column(name = "restaurant_name")
+     private String restaurantName;
 
-	public int getId() {
+	public int getItemId() {
 		return itemId;
 	}
 
-	public void setId(int id) {
-		this.itemId = id;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public String getRestuarantName() {
+		return restaurantName;
+	}
+
+	public void setRestuarantName(String restuarantName) {
+		this.restaurantName = restuarantName;
 	}
 
 	public int getMenuId() {
@@ -89,9 +100,11 @@ public class MenuItem {
 
 	@Override
 	public String toString() {
-		return "MenuItem [id=" + itemId + ", menuId=" + menuId + ", name=" + name + ", description=" + description
-				+ ", price=" + price + ", calories=" + calories + ", imageUrl=" + imageUrl + "]";
+		return "MenuItem [itemId=" + itemId + ", menuId=" + menuId + ", name=" + name + ", description=" + description
+				+ ", price=" + price + ", calories=" + calories + ", imageUrl=" + imageUrl + ", restuarantName="
+				+ restaurantName + "]";
 	}
-    
+
+	
 
 }
