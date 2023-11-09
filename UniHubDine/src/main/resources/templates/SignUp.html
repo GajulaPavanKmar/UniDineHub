@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Sign Up | UniHubDine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/loginstyles.css}">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="login-card">
+                <h2>Create Your Account</h2>
+                <div th:if="${errorMsg}" class="alert alert-danger" th:text="${errorMsg}"></div>
+                <div th:if="${successMsg}" class="alert alert-success" th:text="${successMsg}"></div>
+                <form th:action="@{/signup}" th:object="${user}" method="post">
+                    <div class="mb-4">
+                        <label for="signup-username" class="form-label">LoginID</label>
+                        <input type="text" class="form-control" id="signup-username" th:field="*{userId}" placeholder="Choose a unique username" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="signup-firstname" class="form-label">FirstName</label>
+                        <input type="text" class="form-control" id="signup-firstname" th:field="*{firstName}" placeholder="Your Firstname" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label for="signup-lastname" class="form-label">LastName</label>
+                        <input type="text" class="form-control" id="signup-lastname" th:field="*{lastName}" placeholder="Your Lastname" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label for="signup-email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="signup-email" th:field="*{useremail}" placeholder="Enter email Address" required/>
+                    </div>
+                    <div class="mb-4">
+                        <label for="signup-password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="signup-password" th:field="*{password}" placeholder="Choose a password" required/>
+                    </div>
+                    <button type="submit" class="btn btn-block">Sign Up</button>
+                </form>
+                <p class="text-center">Already have an account? <a th:href="@{/login}">Log In</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>
