@@ -36,7 +36,7 @@ public class MenuDaoImpl extends JdbcDaoSupport implements MenuDao {
 
     @Override
     public Menu findById(int id) {
-        String sql = "SELECT * FROM menu WHERE id = ?";
+        String sql = "SELECT * FROM menu WHERE menu_id = ?";
         return getJdbcTemplate().queryForObject(sql, new Object[]{id}, new MenuRowMapper());
     }
 

@@ -6,15 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.UniHubDine.Restaurant.Controller.Service.ContactFormService;
+import com.UniHubDine.Restaurant.Controller.Service.MenuItemService;
 import com.UniHubDine.Restaurant.Controller.Service.MenuService;
 import com.UniHubDine.Restaurant.Controller.Service.UserService;
-import com.UniHubDine.Restaurant.Controller.Service.Impl.MenuItemServiceImpl;
+import com.UniHubDine.Restaurant.Controller.bean.ContactForm;
 import com.UniHubDine.Restaurant.Controller.bean.Menu;
 import com.UniHubDine.Restaurant.Controller.bean.MenuItem;
 import com.UniHubDine.Restaurant.Controller.bean.User;
@@ -25,16 +31,36 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	MenuService menuService;
-	
+
+	private final MenuItemService menuItemService;
+
+    @Autowired
+    public UserController(MenuItemService menuItemService) {
+        this.menuItemService = menuItemService;
+    }
+
 	@Autowired
-	MenuItemServiceImpl  menuItemService;
+	ContactFormService service;
 
 	@RequestMapping("home")
-	public String homePage() {
+	public String homePage(Model model) {
+		model.addAttribute("contactForm", new ContactForm());
 		return "HomePage";
+	}
+
+	@PostMapping("/home")
+	public String submitContactForm(@ModelAttribute ContactForm contactForm, RedirectAttributes redirectAttributes) {
+		service.saveContactForm(contactForm);
+		redirectAttributes.addFlashAttribute("message", "Your contact form has been successfully submitted.");
+		return "redirect:/success";
+	}
+
+	@GetMapping("/success")
+	public String showSuccessPage() {
+		return "ContactFormSuccess";
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.GET)
@@ -47,9 +73,9 @@ public class UserController {
 		User user = userService.getUserByUserId(userId);
 		try {
 			if (user.getPassword().equals(password)) {
-				model.addAttribute("user",user);
+				model.addAttribute("user", user);
 				List<Menu> menus = menuService.findAll();
-	            model.addAttribute("menus", menus);
+				model.addAttribute("menus", menus);
 				return "PostLoginPages/DashBoard";
 			}
 			model.put("errorMsg", "Please provide the correct details");
@@ -77,13 +103,11 @@ public class UserController {
 		model.put("successMag", "User Created");
 		return "LoginPage";
 	}
-	
-	@RequestMapping(value = "menuItems", method = RequestMethod.GET)
-	public String drinksMenu(@ModelAttribute("user") User user, Model model) {
-		model.addAttribute("userDetails", user); 
-		List<MenuItem> menuitems = menuItemService.findAll();
-        model.addAttribute("menuitems", menuitems);
-	    return "PostLoginPages/MenuItems";
-	}
 
+	@GetMapping("/menu/{menuId}/items")
+    public String showMenuItems(@PathVariable("menuId") int menuId, Model model) {
+        List<MenuItem> menuItems = menuItemService.getMenuItemsByMenuId(menuId);
+        model.addAttribute("menuItems", menuItems);
+        return "PostLoginPages/MenuItems";
+    }
 }

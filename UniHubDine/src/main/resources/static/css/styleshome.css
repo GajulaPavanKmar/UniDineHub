@@ -1,191 +1,243 @@
 @charset "ISO-8859-1";
 
 * {
-	font-family: Lato;
+    font-family: Lato;
 }
 
 body {
-	/* background: #f2fbff;
- */}
+    /* background: #f2fbff; */
+}
 
 .section-padding {
-	padding: 100px 0;
+    padding: 100px 0;
 }
 
 .carousel-item {
-	height: 100vh;
-	min-height: 300px;
+    height: 100vh;
+    min-height: 300px;
 }
 
 .carousel-caption {
-	bottom: 220px;
-	z-index: 2;
+    bottom: 220px;
+    z-index: 2;
 }
 
 .carousel-caption h5 {
-	font-size: 45px;
-	text-transformation: uppercase;
-	letter-spacing: 2px;
-	margin-top: 25px;
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
 }
 
 .carousel-caption p {
-	width: 60%;
-	margin: auto;
-	font-size: 18px;
-	line-height: 1.9;
+    width: 60%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
 }
 
 .caption-inner::before {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .navbar-nav a {
-	font-size: 15px;
-	text-transform: uppercase;
-	font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .navbar-light .navbar-brand {
-	color: #000;
-	font-size: 25px;
-	text-transform: uppercase;
-	font-weight: 700;
-	letter-spacing: 2px;
+    color: #000;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
-	color: #000;
+    color: #000;
 }
 
 .navbar-light .navbar-nav .navbar-link {
-	color: #000;
+    color: #000;
 }
 
 .w-100 {
-	height: 100vh;
+    height: 100vh;
 }
 
 @media only screen and (min-width:768px) and (max-width: 991px) {
-	.carousel-caption {
-		bottom: 370px;
-	}
-	.carousel-caption p {
-		width: 100%;
-	}
+    .carousel-caption {
+        bottom: 370px;
+    }
+    .carousel-caption p {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 767px) {
-	.navbar-nav {
-		text-align: center;
-	}
-	.carousel-caption {
-		bottom: 125px;
-	}
-	.carousel-caption h5 {
-		font-size: 17px;
-	}
-	.carousel-caption a {
-		padding: 10px 15px;
-	}
-	.carousel-caption p {
-		width: 100%;
-		line-height: 1.6;
-		font-size: 12px;
-	}
+    .navbar-nav {
+        text-align: center;
+    }
+    .carousel-caption {
+        bottom: 125px;
+    }
+    .carousel-caption h5 {
+        font-size: 17px;
+    }
+    .carousel-caption a {
+        padding: 10px 15px;
+    }
+    .carousel-caption p {
+        width: 100%;
+        line-height: 1.6;
+        font-size: 12px;
+    }
 }
 
 .menu-title {
-	margin-top: 40px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-	border-bottom: 2px solid #333;
-	padding-bottom: 10px;
-}
-
-.card {
-	margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
 }
 
 .menu-filter {
-	text-align: center;
+    text-align: center;
 }
 
 .menu-btn {
-	margin: 0 10px;
+    margin: 0 10px;
 }
 
 .menu-section {
-	display: none; /* Initially hide all menu sections */
+    display: drinks;
 }
 
-/* Apply a fixed height to the drink images */
+/* General Card Styles */
+.card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Styles */
 .card-img-top {
-	height: 50px;
-	width: 25%;
-	object-fit: cover;
-	border-radius: 0.25rem 0.25rem 0 0;
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; /* cover the area without breaking aspect ratio */
+}
+
+/* Text Styles */
+.card-title {
+    font-size: 1rem; 
+    font-weight: bold; 
+    margin-bottom: 0.25rem; /* space below the title */
+}
+
+.card-text {
+    font-size: 0.9rem; /* smaller than the title */
+    margin-bottom: 0.5rem; /* space below the text */
+}
+
+.price {
+    font-size: 1rem; /* size of the price text */
+    font-weight: bold; /* bold font for price */
+    color: #000; /* color for price */
+}
+
+/* Button or Label Tags */
+.label-tag {
+    font-size: 0.75rem;
+    font-weight: bold;
+    background-color: #ffc107;
+    color: #000;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+/* Partners Section Styles */
+.partner-section .partner-card {
+    border: none;
+    background: transparent; /* No background */
+    box-shadow: none; /* No shadow */
+    margin-bottom: 2rem; /* Space between cards */
+    text-align: center; /* Center the content */
+}
+
+.partner-section .partner-img {
+    width: auto; /* Maintain original image aspect ratio */
+    height: 150px; /* Fixed height for uniformity */
+    object-fit: contain; /* Ensure the image fits well without stretching */
+    margin: 0 auto; /* Center the image */
+}
+
+.partner-section .partner-title {
+    font-size: 1.2rem; /* Slightly larger font size for partner name */
+    margin-top: 1rem; /* Space above the title */
+    font-weight: bold; /* Bold font weight for the title */
+}
+
+.partner-section .partner-text {
+    font-size: 1rem; /* Normal font size for partner description */
 }
 
 /* Responsive adjustments */
-@media ( max-width : 576px) { /* Small devices (phones) */
-	.card-img-top {
-		height: 150px;
-	}
+@media (max-width: 767px) {
+    .partner-section .partner-img {
+        height: 100px; /* Smaller height on smaller screens */
+    }
+}
+.about-us-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
 }
 
-@media ( min-width : 577px) and (max-width: 768px) {
-	/* Medium devices (tablets) */
-	.card-img-top {
-		height: 175px;
-	}
+.section-title {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
 }
 
-/* Partners */
-/* Remove borders from cards */
-.card {
-    border: none;
-    box-shadow: none;  /* Removes any shadow around the card, if any */
+.intro-text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
 
-/* Remove any potential paddings and margins that might cause visible gaps */
-.row > .col-md-4,
-.row > .col-md-6 {
-    padding: 0;
-    margin: 0;
+.vision-mission h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-/* Ensure a fixed height for the logos */
-.card-img-top {
-	height: 150px;
-	width: 100%;
-	object-fit: contain;
-	/* Adjusts the image to fit within the container while maintaining its aspect ratio */
-	border-radius: 0.25rem 0.25rem 0 0;
-	border: none; /* Removes the border */
-	
+.vision-mission p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
-
-@media ( max-width : 576px) {
-	.card-img-top {
-		height: 150px;
-	}
-}
-
-@media ( min-width : 577px) and (max-width: 768px) {
-	.card-img-top {
-		height: 175px;
-	}
-}
-
-
 
 #form-container {
     background-color: #ffffff;
@@ -208,16 +260,3 @@ h2 {
     font-size: 16px;
 }
 
-.btn-primary {
-    background-color: #007bff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    transition: background-color 0.3s;
-}

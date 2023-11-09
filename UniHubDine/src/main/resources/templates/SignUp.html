@@ -7,6 +7,8 @@
     <link rel="stylesheet" th:href="@{/css/loginstyles.css}">
 </head>
 <body>
+<div th:replace="Navbar :: Navbar"></div>
+<br>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -19,21 +21,25 @@
                         <label for="signup-username" class="form-label">LoginID</label>
                         <input type="text" class="form-control" id="signup-username" th:field="*{userId}" placeholder="Choose a unique username" required />
                     </div>
-                    <div class="mb-4">
-                        <label for="signup-firstname" class="form-label">FirstName</label>
-                        <input type="text" class="form-control" id="signup-firstname" th:field="*{firstName}" placeholder="Your Firstname" required/>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="signup-firstname" class="form-label">FirstName</label>
+                            <input type="text" class="form-control" id="signup-firstname" th:field="*{firstName}" placeholder="Your Firstname" required/>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="signup-lastname" class="form-label">LastName</label>
+                            <input type="text" class="form-control" id="signup-lastname" th:field="*{lastName}" placeholder="Your Lastname" required/>
+                        </div>
                     </div>
-                    <div class="mb-4">
-                        <label for="signup-lastname" class="form-label">LastName</label>
-                        <input type="text" class="form-control" id="signup-lastname" th:field="*{lastName}" placeholder="Your Lastname" required/>
-                    </div>
-                    <div class="mb-4">
-                        <label for="signup-email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="signup-email" th:field="*{useremail}" placeholder="Enter email Address" required/>
-                    </div>
-                    <div class="mb-4">
-                        <label for="signup-password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="signup-password" th:field="*{password}" placeholder="Choose a password" required/>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <label for="signup-email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signup-email" th:field="*{useremail}" placeholder="Enter email Address" required/>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="signup-password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signup-password" th:field="*{password}" placeholder="Choose a password" required/>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-block">Sign Up</button>
                 </form>

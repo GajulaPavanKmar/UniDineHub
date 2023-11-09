@@ -1,7 +1,7 @@
 package com.UniHubDine.Restaurant.Controller.bean;
 
 public class Menu {
-	    private int id;
+	    private int menu_id;
 	    private String name;
 	    private String description;
 	    private String image;
@@ -12,10 +12,10 @@ public class Menu {
 			this.image = image;
 		}
 		public int getId() {
-			return id;
+			return menu_id;
 		}
 		public void setId(int id) {
-			this.id = id;
+			this.menu_id = id;
 		}
 		public String getName() {
 			return name;
@@ -31,7 +31,7 @@ public class Menu {
 		}
 		@Override
 		public String toString() {
-			return "Menu [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image + "]";
+			return "Menu [id=" + menu_id + ", name=" + name + ", description=" + description + ", image=" + image + "]";
 		}
 		
 

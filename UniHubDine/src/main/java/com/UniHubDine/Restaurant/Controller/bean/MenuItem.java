@@ -14,7 +14,7 @@ public class MenuItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
-    private int id;
+    private int itemId;
 
     @Column(name = "menu_id")
     private int menuId;
@@ -32,11 +32,11 @@ public class MenuItem {
     private String imageUrl;
 
 	public int getId() {
-		return id;
+		return itemId;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.itemId = id;
 	}
 
 	public int getMenuId() {
@@ -89,7 +89,7 @@ public class MenuItem {
 
 	@Override
 	public String toString() {
-		return "MenuItem [id=" + id + ", menuId=" + menuId + ", name=" + name + ", description=" + description
+		return "MenuItem [id=" + itemId + ", menuId=" + menuId + ", name=" + name + ", description=" + description
 				+ ", price=" + price + ", calories=" + calories + ", imageUrl=" + imageUrl + "]";
 	}
     

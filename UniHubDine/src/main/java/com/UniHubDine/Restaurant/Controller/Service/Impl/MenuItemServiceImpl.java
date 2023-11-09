@@ -12,21 +12,16 @@ import com.UniHubDine.Restaurant.Controller.bean.MenuItem;
 @Service
 public class MenuItemServiceImpl implements MenuItemService {
 
-    private final MenuItemDao menuItemDao;
+	private final MenuItemDao menuItemDao;
 
     @Autowired
-    public MenuItemServiceImpl(MenuItemDao MenuItemDao) {
-        this.menuItemDao = MenuItemDao;
+    public MenuItemServiceImpl(MenuItemDao menuItemDao) {
+        this.menuItemDao = menuItemDao;
     }
 
     @Override
-    public List<MenuItem> findAll() {
-        return menuItemDao.findAll();
+    public List<MenuItem> getMenuItemsByMenuId(int menuId) {
+        return menuItemDao.findByMenuId(menuId);
     }
-
-    @Override
-    public MenuItem findById(int id) {
-        return menuItemDao.findById(id).orElse(null);
-    }
-
+    
 }

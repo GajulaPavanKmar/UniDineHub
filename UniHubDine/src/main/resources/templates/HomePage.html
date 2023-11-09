@@ -22,11 +22,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" th:href="@{/menu}">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link active" th:href="@{/partners}">Partners</a></li>
-                    <li class="nav-item"><a class="nav-link active" th:href="@{/aboutus}">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link active" th:href="@{/locations}">Locations</a></li>
-                    <li class="nav-item"><a class="nav-link active" th:href="@{/contactus}">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#partners">Partners</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#aboutus">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#location">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#contactus">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link active" th:href="login">Login</a></li>
                 </ul>
             </div>
@@ -48,8 +48,8 @@
 				<img src="/images/homepage/hbackground1.png" class="d-block w-100"
 					alt="...">
 				<div class="carousel-caption">
-					<h5>First slide label</h5>
-					<p>Some representative placeholder content for the first slide.</p>
+					<h5>One Restaurant for Universities </h5>
+					<p>Place where you can all restaurants menus in one place.</p>
 				</div>
 			</div>
 			<div class="carousel-item">
@@ -82,141 +82,299 @@
 		</button>
 	</div>
 	<!-- About us -->
-	<section>
+	<section id="menu">
 		<!-- Menu Filter Section -->
 		<div class="container mt-5">
-			<div class="menu-filter mb-4">
-				<button class="btn btn-primary menu-btn" data-menu="drinks">Drinks</button>
-				<button class="btn btn-primary menu-btn" data-menu="coffees">Coffees</button>
-				<button class="btn btn-primary menu-btn" data-menu="desserts">Desserts</button>
-			</div>
-
 			<div class="container mt-5">
-
+				<button class="btn btn-primary menu-btn" data-menu="drinks">Drinks</button>
+				<button class="btn btn-primary menu-btn" data-menu="coffee">Coffee</button>
+				<button class="btn btn-primary menu-btn" data-menu="desserts">Desserts</button>
 				<!-- Drinks Section -->
 				<div class="row menu-section" id="drinks">
 					<h2 class="menu-title">Drinks</h2>
 					<!-- Row 1 for Drinks -->
 					<div class="row mb-4">
 						<!-- Drink 1 -->
-						<div class="col-md-6">
-							<div class="card mb-4">
-								<div
-									class="card-body d-flex justify-content-between align-items-center">
-									<img src="/images/homepage/CocaCola.png"
-										class="card-img-top partner-logo" alt="Drink 1 Name">
-									<div>
-										<h5 class="card-title mb-0">Coca-Cola</h5>
-										<p class="card-text mb-0">Refreshing soft drink.</p>
-									</div>
-									<p class="card-text mb-0">
-										<strong>$1.00</strong>
-									</p>
-								</div>
-							</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+						        <img src="/images/homepage/CocaCola.png" class="card-img-top" alt="Coca-Cola">
+						        <div class="card-body">
+						            <h5 class="card-title">Coca-Cola</h5>
+						            <p class="card-text">Dunkin</p>
+						            <p class="price">$Price 1.00</p>
+						        </div>
+						    </div>
 						</div>
-						<!-- Drink 2 -->
-						<!-- Coca-Cola -->
-						<div class="col-md-6">
-							<div class="card mb-4">
-								<div
-									class="card-body d-flex justify-content-between align-items-center">
-									<img src="/images/homepage/CocaCola.png"
-										class="card-img-top partner-logo" alt="Drink 1 Name">
-									<div>
-										<h5 class="card-title mb-0">Coca-Cola</h5>
-										<p class="card-text mb-0">Refreshing soft drink.</p>
-									</div>
-									<p class="card-text mb-0">
-										<strong>$1.00</strong>
-									</p>
-								</div>
-							</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+						        <img src="/images/homepage/CocaCola.png" class="card-img-top" alt="Coca-Cola">
+						        <div class="card-body">
+						            <h5 class="card-title">Coca-Cola</h5>
+						            <p class="card-text">KFC</p>
+						            <p class="price">$Price 1.25</p>
+						        </div>
+						    </div>
 						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/menu/menuItems/canadadry.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Canada Dry</h5>
+						            <p class="card-text">KFC</p>
+						            <p class="price">$Price 1.29</p>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/menu/menuItems/sprite.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Sprite</h5>
+						            <p class="card-text">McDonalds</p>
+						            <p class="price">$Price 1.30</p>
+						        </div>
+						    </div>
+						</div>
+						
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/menu/menuItems/mountaindew.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Mountain Dew</h5>
+						            <p class="card-text">Chick-FIll-A</p>
+						            <p class="price">$Price 1.49</p>
+						        </div>
+						    </div>
+						</div><div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/menu/menuItems/sunkist.webp" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Sunkist</h5>
+						            <p class="card-text">KFC</p>
+						            <p class="price">$Price 1.50</p>
+						        </div>
+						    </div>
+						</div><div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/menu/menuItems/pepsi.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Pepsi</h5>
+						            <p class="card-text">McDonalds</p>
+						            <p class="price">$Price 1.75</p>
+						        </div>
+						    </div>
+						</div><div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/menu/menuItems/canadadry.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Canada Dry</h5>
+						            <p class="card-text">KFC</p>
+						            <p class="price">$Price 2.00</p>
+						        </div>
+						    </div>
+						</div>
+
 					</div>
 				</div>
+				
+				<div class="row menu-section" id="desserts">
+					<h2 class="menu-title">Desserts</h2>
+					<!-- Row 1 for Drinks -->
+					<div class="row mb-4">
+						<!-- Drink 1 -->
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+						        <img src="/images/homepage/coffee1.webp" class="card-img-top" alt="Coca-Cola">
+						        <div class="card-body">
+						            <h5 class="card-title">Black Coffee</h5>
+						            <p class="card-text">Dunkins</p>
+						            <p class="price">$Price 2.00</p>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/homepage/espresso.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Espresso</h5>
+						            <p class="card-text">Einstein</p>
+						            <p class="price">$Price 2.50</p>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/homepage/Cappuccino.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Cappuccino</h5>
+						            <p class="card-text">StarBucks</p>
+						            <p class="price">$Price 3.00</p>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+						        <img src="/images/homepage/Mocha.webp" class="card-img-top" alt="Coca-Cola">
+						        <div class="card-body">
+						            <h5 class="card-title">Mocha</h5>
+						            <p class="card-text">StarBucks</p>
+						            <p class="price">$Price 3.25</p>
+						        </div>
+						    </div>
+						</div>
+
+					</div>
+				</div>
+				
+								<div class="row menu-section" id="coffee">
+					<h2 class="menu-title">Coffee</h2>
+					<!-- Row 1 for Drinks -->
+					<div class="row mb-4">
+						<!-- Drink 1 -->
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+						        <img src="/images/homepage/coffee1.webp" class="card-img-top" alt="Coca-Cola">
+						        <div class="card-body">
+						            <h5 class="card-title">Black Coffee</h5>
+						            <p class="card-text">Dunkins</p>
+						            <p class="price">$Price 2.00</p>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/homepage/espresso.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Espresso</h5>
+						            <p class="card-text">Einstein</p>
+						            <p class="price">$Price 2.50</p>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+									<img src="/images/homepage/Cappuccino.png" class="card-img-top partner-logo" alt="Drink 1 Name">
+						        <div class="card-body">
+						            <h5 class="card-title">Cappuccino</h5>
+						            <p class="card-text">StarBucks</p>
+						            <p class="price">$Price 3.00</p>
+						        </div>
+						    </div>
+						</div>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+						    <div class="card">
+						        <!-- If you have labels like 'Most Liked', you can add this div -->
+						        <img src="/images/homepage/Mocha.webp" class="card-img-top" alt="Coca-Cola">
+						        <div class="card-body">
+						            <h5 class="card-title">Mocha</h5>
+						            <p class="card-text">StarBucks</p>
+						            <p class="price">$Price 3.25</p>
+						        </div>
+						    </div>
+						</div>
+
+					</div>
+				</div>
+				
 			</div>
-		</div>
 		</div>
 
 	</section>
+	
+<section class="partner-section" id ="partners">
+    <div class="container mt-5">
+        <h2 class="menu-title">Partners</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="partner-card">
+                    <img src="/images/homepage/starbucks.webp" class="partner-img" alt="Starbucks">
+                    <div class="card-body">
+                        <h5 class="partner-title">Starbucks</h5>
+                        <p class="partner-text">One liner about Partner 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="partner-card">
+                    <img src="/images/homepage/dunkin.png" class="partner-img" alt="Starbucks">
+                    <div class="card-body">
+                        <h5 class="partner-title">Dunkin</h5>
+                        <p class="partner-text">One liner about Partner 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="partner-card">
+                    <img src="/images/homepage/chickfilla.png" class="partner-img" alt="Starbucks">
+                    <div class="card-body">
+                        <h5 class="partner-title">Chick-Fill-A</h5>
+                        <p class="partner-text">One liner about Partner 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="partner-card">
+                    <img src="/images/homepage/einstein.png" class="partner-img" alt="Starbucks">
+                    <div class="card-body">
+                        <h5 class="partner-title">Einstein</h5>
+                        <p class="partner-text">One liner about Partner 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="partner-card">
+                    <img src="/images/homepage/kfc.png" class="partner-img" alt="Starbucks">
+                    <div class="card-body">
+                        <h5 class="partner-title">KFC</h5>
+                        <p class="partner-text">One liner about Partner 1.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="partner-card">
+                    <img src="/images/homepage/mcd.png" class="partner-img" alt="Starbucks">
+                    <div class="card-body">
+                        <h5 class="partner-title">McDonalds</h5>
+                        <p class="partner-text">One liner about Partner 1.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<section id="aboutus" class="about-us-section">
+    <div class="container">
+        <h2 class="section-title text-center">About Us</h2>
+        <div class="vision-mission">
+            <h3>Our Vision</h3>
+        <p class="intro-text">Welcome to UniDineHub, where you find the best food at the best prices! Dive into a world of on-campus dining options, compare prices, and make smart, budget-friendly choices without compromising on taste.</p>
+            <h3>Our Mission</h3>
+            <p>To revolutionize university dining by offering a transparent, comparative, and user-friendly platform that places the power of choice and savings right at your fingertips.</p>
+        </div>
+        
+        <h3>Upcoming Features</h3>
+            <p>Classroom Delivery: We understand how packed a student's schedule can be. That's why we're soon launching our classroom delivery feature. Order your favorite dish and have it delivered discreetly to your class without any interruptions. Dining made convenient like never before!</p>
+    </div>
+</section>
 
 
-	<section>
-
-		<div class="container mt-5">
-
-			<!-- Row 1 -->
-			<div class="row mb-4">
-				<!-- Partner 1 -->
-				<div class="col-md-4">
-					<div class="card">
-						<img src="/images/homepage/starbucks.webp" class="card-img-top partner-logo" alt="Partner 1 Name">
-						<div class="card-body text-center">
-							<h5 class="card-title">Starbucks</h5>
-							<p class="card-text">One liner about Partner 1.</p>
-						</div>
-					</div>
-				</div>
-				<!-- Partner 2 -->
-				<div class="col-md-4">
-					<div class="card">
-						<img src="/images/homepage/dunkin.png" class="card-img-top partner-logo" alt="Partner 1 Name">
-						<div class="card-body text-center">
-							<h5 class="card-title">Dunkin</h5>
-							<p class="card-text">One liner about Partner 2.</p>
-						</div>
-					</div>
-				</div>
-				<!-- Partner 3 -->
-				<div class="col-md-4">
-					<div class="card">
-						<img src="/images/homepage/chickfilla.png" class="card-img-top partner-logo" alt="Partner 1 Name">
-						<div class="card-body text-center">
-							<h5 class="card-title">Chick-Fill-A</h5>
-							<p class="card-text">One liner about Partner 3.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Row 2 -->
-			<div class="row">
-				<!-- Partner 4 -->
-				<div class="col-md-4">
-					<div class="card">
-						<img src="/images/homepage/einstein.png" class="card-img-top partner-logo" alt="Partner 1 Name">
-						<div class="card-body text-center">
-							<h5 class="card-title">Einstein</h5>
-							<p class="card-text">One liner about Partner 3.</p>
-						</div>
-					</div>
-				</div>
-				<!-- Partner 5 -->
-				<div class="col-md-4">
-					<div class="card">
-						<img src="/images/homepage/kfc.png" class="card-img-top partner-logo" alt="Partner 1 Name">
-						<div class="card-body text-center">
-							<h5 class="card-title">KFC</h5>
-							<p class="card-text">One liner about Partner 3.</p>
-						</div>
-					</div>
-				</div>
-				<!-- Partner 6 -->
-				<div class="col-md-4">
-					<div class="card">
-						<img src="/images/homepage/mcd.png" class="card-img-top partner-logo" alt="Partner 1 Name">
-						<div class="card-body text-center">
-							<h5 class="card-title">KFC</h5>
-							<p class="card-text">One liner about Partner 3.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</section>
-	<section>
+	<section id="location">
 	<div class="container mt-5">
 
         <!-- Google Map -->
@@ -253,42 +411,43 @@
         initMap();
     </script>
 	</section>
-	<section>
-		<div class="container mt-5" id="form-container">
-	<h2>Contact Us</h2>
-
-        <form action="YOUR_SERVER_ENDPOINT" method="post">
+	<section id="contactus">
+    <div class="container mt-5" id="form-container">
+        <h2>Contact Us</h2>
+        <form th:action="@{/home}" th:object="${contactForm}" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" th:field="*{name}" class="form-control" id="name" required>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" th:field="*{email}" class="form-control" id="email" required>
             </div>
 
             <div class="mb-3">
                 <label for="subject" class="form-label">Subject</label>
-                <input type="text" class="form-control" id="subject" name="subject">
+                <input type="text" th:field="*{subject}" class="form-control" id="subject">
             </div>
 
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                <textarea th:field="*{message}" class="form-control" id="message" rows="4" required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-	</div>
-	</section>
 </body>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"  integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
             crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
             crossorigin="anonymous"></script>
+      <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+      
 </body>
 </html>
