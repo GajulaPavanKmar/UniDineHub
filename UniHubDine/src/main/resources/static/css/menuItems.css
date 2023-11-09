@@ -28,7 +28,7 @@ body {
 
 /* Image styling */
 .card-img-top {
-	height: 5px; /* Smaller height */
+	height: 150px; /* Smaller height */
 	object-fit: cover;
 	transition: transform 0.3s ease-in-out;
 	border-bottom: 1px solid #eee; /* subtle separator from the content */
