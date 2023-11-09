@@ -43,87 +43,21 @@
     <button onclick="sortItemsByDescription()" class="btn btn-secondary">Sort by Description</button>
 </div>
 
-    <div class="row" id="itemsContainer">
-        <!-- Menu Item 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card menu-item" data-price="9.99">                
-                <img src="/images/homepage/CocaCola.png" class="card-img-top" alt="Coca Cola">
-                <div class="card-body">
-                    <h5 class="card-title">Coca Cola</h5>
-                    <p class="card-text">Classic cola flavor.</p>
+   <div class="row" id="itemsContainer">
+        <!-- Dynamic Menu Items -->
+        <div class="col-md-4 mb-4" th:each="menuItem : ${menuItems}">
+            <div class="card menu-item" th:data-price="${menuItem.price}">                
+<!--                 <img th:src="@{${menuItem.imageUrl}}" class="card-img-top" alt="Menu Item Image">
+ -->                <div class="card-body">
+                    <h5 class="card-title" th:text="${menuItem.itemName}">Item Name</h5>
+                    <p class="card-text" th:text="${menuItem.description}">Item Description</p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="price">$9.99</span>
-                        <button type="button" class="btn btn-primary add-to-cart" data-id="coke">Add to Cart</button>
+                        <span class="price" th:text="'$' + ${menuItem.price}">Item Price</span>
+                        <button type="button" class="btn btn-primary add-to-cart" th:data-id="${menuItem.id}">Add to Cart</button>
                     </div>
                 </div>
             </div>
         </div>
-               <div class="col-md-4 mb-4">
-            <div class="card menu-item" data-price="8.99">                
-                <img src="/images/menuitems/sprite.png" class="card-img-top" alt="Coca Cola">
-                <div class="card-body">
-                    <h5 class="card-title">Sprite</h5>
-                    <p class="card-text">Classic cola flavor.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="price">$8.99</span>
-                        <button type="button" class="btn btn-primary add-to-cart" data-id="coke">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-               <div class="col-md-4 mb-4">
-            <div class="card menu-item" data-price="5.99">                
-                <img src="/images/menuitems/sunkist.webp" class="card-img-top" alt="Coca Cola">
-                <div class="card-body">
-                    <h5 class="card-title">Sunkist</h5>
-                    <p class="card-text">Classic cola flavor.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="price">$5.99</span>
-                        <button type="button" class="btn btn-primary add-to-cart" data-id="coke">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card menu-item" data-price="5.99">                
-                <img src="/images/menuitems/canadadry.png" class="card-img-top" alt="Coca Cola">
-                <div class="card-body">
-                    <h5 class="card-title">Canada Dry</h5>
-                    <p class="card-text">Classic cola flavor.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="price">$5.99</span>
-                        <button type="button" class="btn btn-primary add-to-cart" data-id="coke">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card menu-item" data-price="5.99">                
-                <img src="/images/menuitems/mountaindew.png" class="card-img-top" alt="Coca Cola">
-                <div class="card-body">
-                    <h5 class="card-title">Mountain Dew</h5>
-                    <p class="card-text">Classic cola flavor.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="price">$5.99</span>
-                        <button type="button" class="btn btn-primary add-to-cart" data-id="coke">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card menu-item" data-price="5.99">                
-                <img src="/images/menuitems/pepsi.png" class="card-img-top" alt="Coca Cola">
-                <div class="card-body">
-                    <h5 class="card-title">Pepsi</h5>
-                    <p class="card-text">Classic cola flavor.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="price">$5.99</span>
-                        <button type="button" class="btn btn-primary add-to-cart" data-id="coke">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ... other menu items with their respective data-price and data-id ... -->
     </div>
 </div>
 <script>

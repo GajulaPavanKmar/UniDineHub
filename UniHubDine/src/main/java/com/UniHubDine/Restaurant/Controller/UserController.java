@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.UniHubDine.Restaurant.Controller.Service.MenuService;
 import com.UniHubDine.Restaurant.Controller.Service.UserService;
+import com.UniHubDine.Restaurant.Controller.Service.Impl.MenuItemServiceImpl;
 import com.UniHubDine.Restaurant.Controller.bean.Menu;
+import com.UniHubDine.Restaurant.Controller.bean.MenuItem;
 import com.UniHubDine.Restaurant.Controller.bean.User;
 
 @Controller
@@ -26,6 +28,9 @@ public class UserController {
 	
 	@Autowired
 	MenuService menuService;
+	
+	@Autowired
+	MenuItemServiceImpl  menuItemService;
 
 	@RequestMapping("home")
 	public String homePage() {
@@ -72,18 +77,12 @@ public class UserController {
 		model.put("successMag", "User Created");
 		return "LoginPage";
 	}
-
-	/*
-	 * @RequestMapping(value = "dashboard", method = RequestMethod.GET) public
-	 * String userDashboard(@ModelAttribute("user") User user, Model model) { // The
-	 * user object is already in the session and can be used directly
-	 * model.addAttribute("user", user); return "DashBoard"; }
-	 */
 	
 	@RequestMapping(value = "menuItems", method = RequestMethod.GET)
 	public String drinksMenu(@ModelAttribute("user") User user, Model model) {
 		model.addAttribute("userDetails", user); 
-		
+		List<MenuItem> menuitems = menuItemService.findAll();
+        model.addAttribute("menuitems", menuitems);
 	    return "PostLoginPages/MenuItems";
 	}
 
