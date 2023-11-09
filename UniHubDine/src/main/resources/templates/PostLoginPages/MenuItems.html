@@ -5,7 +5,6 @@
 <title>Drinks</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
-
 <link rel="stylesheet" href="/css/menuItems.css">
 </head>
 <body>
@@ -43,72 +42,60 @@
     <button onclick="sortItemsByDescription()" class="btn btn-secondary">Sort by Description</button>
 </div>
 
-   <div class="row" id="itemsContainer">
-        <!-- Dynamic Menu Items -->
-        <div class="col-md-4 mb-4" th:each="menuItem : ${menuItems}">
-            <div class="card menu-item" th:data-price="${menuItem.price}">                
-<!--                 <img th:src="@{${menuItem.imageUrl}}" class="card-img-top" alt="Menu Item Image">
+<div class="container mt-5">
+    <h2>Menu Items</h2>
+    <div class="row">
+        <!-- Loop through each menu item passed from the controller -->
+        <div class="col-md-4 mb-3" th:each="menuItem : ${menuitems}">
+            <div class="card h-100">
+<!--                 <img th:src="@{${menuItem.imageUrl}}" class="card-img-top" alt="Menu Item Image" th:alt="${menuItem.name}">
  -->                <div class="card-body">
-                    <h5 class="card-title" th:text="${menuItem.itemName}">Item Name</h5>
+                    <h5 class="card-title" th:text="${menuItem.name}">Item Name</h5>
                     <p class="card-text" th:text="${menuItem.description}">Item Description</p>
+                    <p class="card-text"><small class="text-muted" th:text="${menuItem.calories} + ' cal'">Calories</small></p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="price" th:text="'$' + ${menuItem.price}">Item Price</span>
-                        <button type="button" class="btn btn-primary add-to-cart" th:data-id="${menuItem.id}">Add to Cart</button>
-                    </div>
+                        <span class="text-primary" th:text="'$' + ${menuItem.price}">Item Price</span>
+ 							<a href="#" class="btn btn-primary addToCart" data-item-id="${menuItem.id}">Add to Cart<span class="item-count">0</span></a>
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 <script>
-function sortItemsByPrice() {
-    var itemsContainer = document.getElementById('itemsContainer');
-    var items = itemsContainer.getElementsByClassName('col-md-4'); // Get the column divs instead of the menu-item divs
-    var itemsArray = Array.from(items); // Convert HTMLCollection to Array
+var shoppingCart = [];
 
-    // Sort the items by data-price attribute
-    itemsArray.sort(function(a, b) {
-        var priceA = parseFloat(a.querySelector('.menu-item').getAttribute('data-price'));
-        var priceB = parseFloat(b.querySelector('.menu-item').getAttribute('data-price'));
-        return priceA - priceB; // For ascending sort
+function addToCartHandler(event) {
+    event.preventDefault();
+    
+    var itemId = event.target.getAttribute('data-item-id');
+    var selectedItem = menuItems.find(function(item) {
+        return item.id === itemId;
     });
 
-    // Re-append items to the container in the new order
-    itemsArray.forEach(function(item) {
-        itemsContainer.appendChild(item);
-    });
-}
-function sortItemsByName() {
-    var itemsContainer = document.getElementById('itemsContainer');
-    var items = itemsContainer.getElementsByClassName('col-md-4');
-    var itemsArray = Array.from(items);
+    if (selectedItem) {
+        shoppingCart.push(selectedItem);
+        
+        // Update the item count displayed in the UI
+        var itemCountSpan = event.target.querySelector('.item-count');
+        if (itemCountSpan) {
+            var itemCount = shoppingCart.length;
+            itemCountSpan.textContent = itemCount;
+        }
 
-    itemsArray.sort(function(a, b) {
-        var nameA = a.querySelector('.card-title').textContent.toUpperCase(); // Convert to uppercase for case-insensitive comparison
-        var nameB = b.querySelector('.card-title').textContent.toUpperCase();
-        return nameA.localeCompare(nameB); // Use localeCompare for string comparison
-    });
-
-    itemsArray.forEach(function(item) {
-        itemsContainer.appendChild(item);
-    });
+        alert('Item added to cart: ' + selectedItem.name);
+    } else {
+        alert('Item not found.');
+    }
 }
 
-function sortItemsByDescription() {
-    var itemsContainer = document.getElementById('itemsContainer');
-    var items = itemsContainer.getElementsByClassName('col-md-4');
-    var itemsArray = Array.from(items);
+var addToCartButtons = document.querySelectorAll('.addToCart');
+addToCartButtons.forEach(function(button) {
+    button.addEventListener('click', addToCartHandler);
+});
 
-    itemsArray.sort(function(a, b) {
-        var descriptionA = a.querySelector('.card-text').textContent.toUpperCase();
-        var descriptionB = b.querySelector('.card-text').textContent.toUpperCase();
-        return descriptionA.localeCompare(descriptionB);
-    });
 
-    itemsArray.forEach(function(item) {
-        itemsContainer.appendChild(item);
-    });
-}
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>

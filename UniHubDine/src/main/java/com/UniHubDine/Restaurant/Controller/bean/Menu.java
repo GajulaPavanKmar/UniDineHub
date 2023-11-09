@@ -4,6 +4,13 @@ public class Menu {
 	    private int id;
 	    private String name;
 	    private String description;
+	    private String image;
+		public String getImage() {
+			return image;
+		}
+		public void setImage(String image) {
+			this.image = image;
+		}
 		public int getId() {
 			return id;
 		}
@@ -24,7 +31,8 @@ public class Menu {
 		}
 		@Override
 		public String toString() {
-			return "Menu [id=" + id + ", name=" + name + ", description=" + description + "]";
+			return "Menu [id=" + id + ", name=" + name + ", description=" + description + ", image=" + image + "]";
 		}
+		
 
 }

@@ -46,6 +46,7 @@ public class MenuDaoImpl extends JdbcDaoSupport implements MenuDao {
             menu.setId(rs.getInt("menu_id"));
             menu.setName(rs.getString("menu_name"));
             menu.setDescription(rs.getString("menu_description"));
+            menu.setImage(rs.getString("image_path"));
             return menu;
         }
     }

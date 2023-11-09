@@ -67,10 +67,9 @@
         <div th:each="menu : ${menus}" class="col-md-4 mb-4">
             <div class="card">
             <a href="menuItems">
-                            <img src="/images/login/salad.png" class="card-img-top" alt="Drink">
+                <img th:src="@{'/images/menu/'+ ${menu.image}}" class="card-img-top" alt="Menu Item" th:alt="${menu.name}">
             </a>
-<!--                 <img th:src="@{'/images/menu/' + ${menu.image}}" class="card-img-top" alt="Menu Item" th:alt="${menu.name}">
- -->                <div class="card-body">
+          <div class="card-body">
                     <h5 class="card-title" th:text="${menu.name}">Menu Name</h5>
                     <p class="card-text" th:text="${menu.description}">Menu Description</p>
                 </div>
