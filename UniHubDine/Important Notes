@@ -1,3 +1,6 @@
 Docker
 docker build -t unidinehub-app .
 docker run -p 8080:8080 unidinehub-app
+
+
+docker run --detach --env MYSQL_ROOT_PASSWORD=Gajula@123 --env MYSQL_USER=root --env MYSQL_PASSWORD=Gajula@123 --env MYSQL_DATABASE=root --name mysql --publish 3306:3306 mysql:8-oracle

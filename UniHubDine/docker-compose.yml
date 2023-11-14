@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/unidinehub
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=Gajula@123
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=unidinehub
+      - MYSQL_ROOT_PASSWORD=Gajula@123
+    ports:
+      - "3306:3306"
+
+networks:
+  default:
+    driver: bridge
