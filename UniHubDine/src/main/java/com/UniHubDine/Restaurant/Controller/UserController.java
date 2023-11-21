@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,14 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.UniHubDine.Restaurant.Controller.Service.ContactFormService;
-import com.UniHubDine.Restaurant.Controller.Service.MenuItemService;
-import com.UniHubDine.Restaurant.Controller.Service.MenuService;
-import com.UniHubDine.Restaurant.Controller.Service.UserService;
-import com.UniHubDine.Restaurant.Controller.bean.ContactForm;
-import com.UniHubDine.Restaurant.Controller.bean.Menu;
-import com.UniHubDine.Restaurant.Controller.bean.MenuItem;
-import com.UniHubDine.Restaurant.Controller.bean.User;
+import com.UniHubDine.Restaurant.Model.ContactForm;
+import com.UniHubDine.Restaurant.Model.Menu;
+import com.UniHubDine.Restaurant.Model.User;
+import com.UniHubDine.Restaurant.Service.ContactFormService;
+import com.UniHubDine.Restaurant.Service.MenuService;
+import com.UniHubDine.Restaurant.Service.UserService;
 
 @Controller
 @SessionAttributes("user")
@@ -34,13 +31,6 @@ public class UserController {
 
 	@Autowired
 	MenuService menuService;
-
-	private final MenuItemService menuItemService;
-
-    @Autowired
-    public UserController(MenuItemService menuItemService) {
-        this.menuItemService = menuItemService;
-    }
 
 	@Autowired
 	ContactFormService service;
@@ -103,11 +93,4 @@ public class UserController {
 		model.put("successMag", "User Created");
 		return "LoginPage";
 	}
-
-	@GetMapping("/menu/{menuId}/items")
-    public String showMenuItems(@PathVariable("menuId") int menuId, Model model) {
-        List<MenuItem> menuItems = menuItemService.getMenuItemsByMenuId(menuId);
-        model.addAttribute("menuItems", menuItems);
-        return "PostLoginPages/MenuItems";
-    }
 }
