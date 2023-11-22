@@ -1,0 +1,77 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1140px;
+    margin: auto;
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+.cart-items {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #eaeaea;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.image-container img {
+    width: 80px; /* Adjust as needed */
+}
+
+.item-info h5 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.item-info p {
+    color: #666;
+}
+
+.summary {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.summary h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.promo-code input {
+    margin-top: 0.5rem;
+}
+
+.price-details p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.btn-dark, .btn-outline-dark {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .col-lg-8, .col-lg-4 {
+        width: 100%;
+    }
+}
+
+/* Add more custom styles as needed */

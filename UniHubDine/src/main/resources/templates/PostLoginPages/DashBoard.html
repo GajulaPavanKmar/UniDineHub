@@ -12,31 +12,8 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">UniDineHub</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/userCart}">
-                        <i class="bi bi-cart"></i> Cart
-                    </a>
-                </li>
-                <!-- Account Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" th:href="@{/account}">My Account</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" th:href="@{/logout}">Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>    
+<div th:replace="PostLoginPages/LoginNavbar :: LoginNavbar"></div>
+
 <section class="custom-section">
     <div class="container custom-container">
         <button onclick="changeContent(-1)" class="carousel-arrow left-arrow">&#10094;</button>

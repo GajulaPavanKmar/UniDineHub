@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.UniHubDine.Restaurant.Dao.CartJdbcRepository;
 import com.UniHubDine.Restaurant.Model.Cart;
+import com.UniHubDine.Restaurant.Model.CartItem;
 
 @Service
 @Transactional
@@ -46,5 +47,9 @@ public class CartService {
 
     public void addToCart(Integer cartId, String userId, Integer itemId, Integer quantity) {
         cartJdbcRepository.addToCart(cartId, userId, itemId, quantity);
+    }
+    
+    public List<CartItem> viewCartItems(String userId) {
+    	return cartJdbcRepository.viewCartItems(userId);
     }
 }

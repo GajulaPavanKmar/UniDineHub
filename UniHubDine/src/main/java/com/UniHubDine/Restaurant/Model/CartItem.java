@@ -13,72 +13,90 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "cart_items")
 public class CartItem {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer cartItemId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer cartItemId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_id", nullable = false)
-    private Cart cart;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cart_id", nullable = false)
+	private Cart cart;
 
-    @Column(name = "item_id", nullable = false)
-    private Integer itemId;
+	@Column(name = "item_id", nullable = false)
+	private Integer itemId;
 
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
+	@Column(name = "quantity", nullable = false)
+	private Integer quantity;
 
-    @Column(name = "note")
-    private String note;
+	@Column(name = "note")
+	private String note;
 
-    // Constructors
-    public CartItem() {
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "item_id", referencedColumnName = "item_id", insertable = false, updatable = false)
+	private MenuItem menuItem;
 
-    public CartItem(Cart cart, Integer itemId, Integer quantity) {
-        this.cart = cart;
-        this.itemId = itemId;
-        this.quantity = quantity;
-    }
+	// Constructors
+	public CartItem() {
+	}
 
-    // Getters and Setters
-    public Integer getCartItemId() {
-        return cartItemId;
-    }
+	public CartItem(Cart cart, Integer itemId, Integer quantity) {
+		this.cart = cart;
+		this.itemId = itemId;
+		this.quantity = quantity;
+	}
 
-    public void setCartItemId(Integer cartItemId) {
-        this.cartItemId = cartItemId;
-    }
+	// Getters and Setters
+	public Integer getCartItemId() {
+		return cartItemId;
+	}
 
-    public Cart getCart() {
-        return cart;
-    }
+	public void setCartItemId(Integer cartItemId) {
+		this.cartItemId = cartItemId;
+	}
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
+	public Cart getCart() {
+		return cart;
+	}
 
-    public Integer getItemId() {
-        return itemId;
-    }
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 
-    public void setItemId(Integer itemId) {
-        this.itemId = itemId;
-    }
+	public Integer getItemId() {
+		return itemId;
+	}
 
-    public Integer getQuantity() {
-        return quantity;
-    }
+	public void setItemId(Integer itemId) {
+		this.itemId = itemId;
+	}
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+	public Integer getQuantity() {
+		return quantity;
+	}
 
-    public String getNote() {
-        return note;
-    }
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 
-    public void setNote(String note) {
-        this.note = note;
-    }
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public MenuItem getMenuItem() {
+		return menuItem;
+	}
+
+	public void setMenuItem(MenuItem menuItem) {
+		this.menuItem = menuItem;
+	}
+
+	@Override
+	public String toString() {
+		return "CartItem [cartItemId=" + cartItemId + ", cart=" + cart + ", itemId=" + itemId + ", quantity=" + quantity
+				+ ", note=" + note + "]";
+	}
+
 }
-

@@ -2,37 +2,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Drinks</title>
+<title>MenuItems</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
 <link rel="stylesheet" href="/css/menuItems.css">
+<link rel="stylesheet" th:href="@{/css/homestyles.css}">
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">UniDineHub</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/cart}">
-                        <i class="bi bi-cart"></i> Cart
-                    </a>
-                </li>
-                <!-- Account Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" th:href="@{/account}">My Account</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" th:href="@{/logout}">Sign Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<div th:replace="PostLoginPages/LoginNavbar :: LoginNavbar"></div>
 
 <div class="container mt-5">
 <br>

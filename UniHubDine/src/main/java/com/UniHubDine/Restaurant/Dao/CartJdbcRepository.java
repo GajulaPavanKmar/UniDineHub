@@ -10,6 +10,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.UniHubDine.Restaurant.Model.Cart;
+import com.UniHubDine.Restaurant.Model.CartItem;
+import com.UniHubDine.Restaurant.Model.MenuItem;
 
 @Repository
 public class CartJdbcRepository {
@@ -27,6 +29,22 @@ public class CartJdbcRepository {
         cart.setUserId(resultSet.getString("user_id"));
         cart.setTimestamp(resultSet.getTimestamp("timestamp").toLocalDateTime());
         return cart;
+    };
+    
+    private final RowMapper<CartItem> cartItemRowMapper = (resultSet, rowNum) -> {
+    	 CartItem cartItem = new CartItem();
+    	    cartItem.setCartItemId(resultSet.getInt("cart_item_id"));
+    	    cartItem.setItemId(resultSet.getInt("item_id"));
+    	    cartItem.setQuantity(resultSet.getInt("quantity"));
+    	    cartItem.setNote(resultSet.getString("note"));
+
+    	    MenuItem menuItem = new MenuItem();
+    	    menuItem.setItemId(resultSet.getInt("item_id"));
+    	    menuItem.setName(resultSet.getString("item_name"));
+    	    menuItem.setPrice(resultSet.getDouble("price"));
+    	    cartItem.setMenuItem(menuItem);
+
+    	    return cartItem;
     };
     
     public void addToCart(Integer cartId, String userId, Integer itemId, Integer quantity) {
@@ -67,5 +85,14 @@ public class CartJdbcRepository {
     public List<Cart> getAllCarts() {
         String sql = "SELECT * FROM carts";
         return jdbcTemplate.query(sql, cartRowMapper);
+    }
+    
+    //View Cart Items
+    public List<CartItem> viewCartItems(String userId){
+    	String sql = "SELECT ci.*, mi.menu_id , mi.item_name , mi.price " +
+                "FROM cart_items ci " +
+                "JOIN menu_items mi ON ci.item_id = mi.item_id  " +
+                "WHERE ci.user_id = ?";
+    	return jdbcTemplate.query(sql, cartItemRowMapper,userId);
     }
 }
