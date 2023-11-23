@@ -1,26 +1,22 @@
 package com.UniHubDine.Restaurant.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "contact_form") 
+import jakarta.persistence.Id;
+
+@Document(collection = "contact_form")
 public class ContactForm {
-	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+    @Id
+    private String id; 
 
     private String name;
     private String email;
     private String subject;
     private String message;
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -52,6 +48,5 @@ public class ContactForm {
 		return "ContactForm [id=" + id + ", name=" + name + ", email=" + email + ", subject=" + subject + ", message="
 				+ message + "]";
 	}
-    
-    
+
 }

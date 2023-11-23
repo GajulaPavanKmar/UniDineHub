@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.UniHubDine.Restaurant.Model.ContactForm;
 import com.UniHubDine.Restaurant.Model.Menu;
 import com.UniHubDine.Restaurant.Model.User;
-import com.UniHubDine.Restaurant.Service.ContactFormService;
+import com.UniHubDine.Restaurant.Service.ContactFormMongoService;
 import com.UniHubDine.Restaurant.Service.MenuService;
 import com.UniHubDine.Restaurant.Service.UserService;
 
@@ -33,7 +33,7 @@ public class UserController {
 	MenuService menuService;
 
 	@Autowired
-	ContactFormService service;
+	ContactFormMongoService mongoService;
 
 	@RequestMapping("home")
 	public String homePage(Model model) {
@@ -43,7 +43,7 @@ public class UserController {
 
 	@PostMapping("/home")
 	public String submitContactForm(@ModelAttribute ContactForm contactForm, RedirectAttributes redirectAttributes) {
-		service.saveContactForm(contactForm);
+		mongoService.saveContactForm(contactForm); 
 		redirectAttributes.addFlashAttribute("message", "Your contact form has been successfully submitted.");
 		return "redirect:/success";
 	}
