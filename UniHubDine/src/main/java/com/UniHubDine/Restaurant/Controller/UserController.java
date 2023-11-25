@@ -43,7 +43,7 @@ public class UserController {
 
 	@PostMapping("/home")
 	public String submitContactForm(@ModelAttribute ContactForm contactForm, RedirectAttributes redirectAttributes) {
-		mongoService.saveContactForm(contactForm); 
+		mongoService.saveContactForm(contactForm);
 		redirectAttributes.addFlashAttribute("message", "Your contact form has been successfully submitted.");
 		return "redirect:/success";
 	}
@@ -70,6 +70,19 @@ public class UserController {
 			}
 			model.put("errorMsg", "Please provide the correct details");
 			return "LoginPage";
+		} catch (Exception e) {
+			model.put("errorMsg", "Please provide the correct details");
+			return "LoginPage";
+		}
+	}
+
+	@RequestMapping(value = "loginhome", method = RequestMethod.GET)
+	public String DashBoard(ModelMap model) {
+		User user = (User) model.getAttribute("user");
+		try {
+			List<Menu> menus = menuService.findAll();
+			model.addAttribute("menus", menus);
+			return "PostLoginPages/DashBoard";
 		} catch (Exception e) {
 			model.put("errorMsg", "Please provide the correct details");
 			return "LoginPage";

@@ -1,5 +1,6 @@
 package com.UniHubDine.Restaurant.Controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import com.UniHubDine.Restaurant.Model.User;
 import com.UniHubDine.Restaurant.Service.CartService;
 import com.UniHubDine.Restaurant.Service.MenuItemService;
 import com.UniHubDine.Restaurant.Service.MenuService;
+import com.UniHubDine.Restaurant.Service.OrderService;
 
 @Controller
 @SessionAttributes("user")
@@ -31,6 +33,10 @@ public class MenuController {
 	@Autowired
 	private CartService cartService;
 	private final MenuItemService menuItemService;
+	
+	@Autowired
+    private OrderService orderService;
+
 
 	@Autowired
 	public MenuController(MenuItemService menuItemService) {
@@ -62,9 +68,9 @@ public class MenuController {
 		if (cart == null) {
 			cart = cartService.createCart(userId);
 		}
-		Integer cartId = cart.getCartId();
-		cartService.addToCart(cartId, userId, itemId, quantity);
-		redirectAttributes.addFlashAttribute("message", "Item added to cart!");
+		Cart cartFromDB = cartService.findCartByUserId(user.getUserId());
+		cartService.addToCart(cartFromDB.getCartId(), userId, itemId, quantity);
+		model.addAttribute("message", "Item added to cart!");
 		List<MenuItem> menuItems = menuItemService.getMenuItemsByMenuId(menuId);
 		model.addAttribute("menuItems", menuItems);
 		model.addAttribute("menuId", menuId);
@@ -89,4 +95,29 @@ public class MenuController {
 		}
 		return "PostLoginPages/ViewCart";
 	}
+	
+	@PostMapping("/placeOrder")
+    public String placeOrder(Model model,RedirectAttributes redirectAttributes) {
+        User user = (User) model.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+
+        // Get cart items from CartService
+        List<CartItem> cartItems = cartService.viewCartItems(user.getUserId());
+
+		Cart cart = cartService.findCartByUserId(user.getUserId());
+        // Place the order
+        orderService.placeOrder(user, cartItems);
+        cartService.deleteCart(cart.getCartId());
+		redirectAttributes.addFlashAttribute("message", "Your Order Placed!");
+
+	    return "redirect:/orderConfirmation";
+    }
+	
+	@GetMapping("/orderConfirmation")
+	public String orderConfirmation() {
+	    return "PostLoginPages/orderConfirm";
+	}
+
 }

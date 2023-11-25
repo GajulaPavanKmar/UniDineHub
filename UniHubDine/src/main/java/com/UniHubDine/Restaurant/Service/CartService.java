@@ -39,6 +39,7 @@ public class CartService {
 
     public void deleteCart(Integer cartId) {
         cartJdbcRepository.deleteCart(cartId);
+//        cartJdbcRepository.deleteCartItems(cartId);
     }
 
     public List<Cart> getAllCarts() {

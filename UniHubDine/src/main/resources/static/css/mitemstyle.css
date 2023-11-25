@@ -1,0 +1,92 @@
+.menu-section {
+  background-color: #f9f9f9;
+}
+
+.menu-back-btn {
+}
+
+.menu-title {
+}
+
+.menu-sort-buttons .btn {
+  margin-right: 5px;
+}
+
+.menu-item {
+  margin-bottom: 1rem;
+}
+
+.menu-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #007bff; /* Blue color for item names */
+}
+
+.menu-item-restaurant, .menu-item-calories {
+  color: #666;
+}
+
+.menu-item-price {
+  font-size: 1.5rem;
+  color: #dc3545; /* Red color for price */
+  font-weight: bold;
+}
+
+.menu-quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-qty-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-qty-btn:hover {
+  background-color: #0056b3;
+}
+
+.menu-qty-input {
+  width: 50px;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+}
+
+.menu-cart-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.menu-cart-btn:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .menu-qty-btn, .menu-qty-input, .menu-cart-btn {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .menu-qty-input {
+    width: 40px;
+  }
+}

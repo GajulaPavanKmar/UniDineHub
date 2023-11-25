@@ -1,67 +1,66 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>MenuItems</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.css}" rel="stylesheet">
-<link rel="stylesheet" href="/css/menuItems.css">
 <link rel="stylesheet" th:href="@{/css/homestyles.css}">
+<link rel="stylesheet" th:href="@{/css/mitemstyle.css}">
 
 </head>
 <body>
+<section>
 <div th:replace="~{PostLoginPages/LoginNavbar :: LoginNavbar}"></div>
+</section>
 
-<div class="container mt-5">
-<br>
-		<a class="btn btn-warning" th:href="@{/menu}" role="button">Back</a>
+<section class="menu-section py-5">
+  <div class="container">
+    <a class="menu-back-btn btn btn-warning mb-4" th:href="@{/menu}" role="button">Back</a>
+    <h2 class="menu-title text-center mb-4">Drinks Menu</h2>
 
-    <h2 class="text-center mb-4">Drinks Menu</h2>
-    <!-- Sort Buttons -->
-    <div class="text-center mb-4">
-        <button id="sortByPrice" class="btn btn-secondary">Sort by Price</button>
-        <button id="sortByName" class="btn btn-secondary">Sort by Name</button>
-        <button id="sortByRestuarantName" class="btn btn-secondary">Sort by Restuarant Name</button>
+    <div class="menu-sort-buttons text-center mb-4">
+      <button id="sortByPrice" class="btn btn-secondary">Sort by Price</button>
+      <button id="sortByName" class="btn btn-secondary">Sort by Name</button>
+      <button id="sortByRestaurantName" class="btn btn-secondary">Sort by Restaurant Name</button>
     </div>
-
-    <div class="container mt-5">
-        <h2>Menu Items</h2>
-        <!-- Inside your existing .row element -->
-<div class="row" id="menuItemsContainer">
-    <div th:each="menuItem : ${menuItems}" 
-         th:attr="data-price=${menuItem.price}, data-name=${menuItem.name},  data-restuarantName= ${menuItem.restuarantName}" 
-         class="col-md-4 mb-3" 
-         th:object="${menuItem}">
-        <div class="card h-100">
-<!--             <img th:src="@{${menuItem.imageUrl}}" class="card-img-top" alt="Menu Item Image" th:alt="${menuItem.name}">
- -->            <div class="card-body">
-                <h5 class="card-title" th:text="${menuItem.name}">Item Name</h5>
-                <p class="card-text" th:text="${menuItem.restuarantName}">Restuarant Name</p>
-                <p class="card-text"><small class="text-muted" th:text="${menuItem.calories} + ' cal'">Calories</small></p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <span class="text-primary" th:text="'$' + ${menuItem.price}">Item Price</span>
-                    
-					<form th:action="@{/menu/{id}/items/addToCart(id=${menuId})}" method="post" class="add-to-cart-form">
-					    <input type="hidden" th:name="itemId" th:value="${menuItem.itemId}" />
-					
-					    <div class="quantity-selector d-flex align-items-center">
-					        <button type="button" class="btn btn-outline-secondary quantity-decrease">-</button>
-					        <input type="number" name="quantity" value="1" min="1" class="form-control quantity-input" />
-					        <button type="button" class="btn btn-outline-secondary quantity-increase">+</button>
-					    </div>
-					
-					    <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
-					</form>
-
-            
-   			  </div>
+<div class="alert alert-success" role="alert"th:if="${message}">
+    <p th:text="${message}">Default message</p>
+</div>
+    <div class="menu-items">
+      <div class="row" id="menuItemsContainer">
+        <div th:each="menuItem : ${menuItems}"
+             th:attr="data-price=${menuItem.price}, data-name=${menuItem.name}, data-restaurantName= ${menuItem.restuarantName}"
+             class="menu-item col-md-4 mb-4"
+             th:object="${menuItem}">
+          <div class="card menu-card h-100">
+            <div class="card-body">
+              <h5 class="menu-item-name" th:text="${menuItem.name}">Item Name</h5>
+              <p class="menu-item-restaurant" th:text="${menuItem.restuarantName}">Restaurant Name</p>
+              <p class="menu-item-calories"><small class="text-muted" th:text="${menuItem.calories} + ' cal'">Calories</small></p>
+              <div class="menu-item-details d-flex justify-content-between align-items-center">
+                <span class="menu-item-price" th:attr="data-baseprice=${menuItem.price}" th:text="'$' + ${menuItem.price}">Item Price</span>
+                <form th:action="@{/menu/{id}/items/addToCart(id=${menuId})}" method="post" class="menu-item-form">
+                  <input type="hidden" th:name="itemId" th:value="${menuItem.itemId}" />
+                  <div class="menu-quantity-selector d-flex align-items-center">
+                    <button type="button" class="menu-qty-btn decrease">-</button>
+                    <input type="number" name="quantity" value="1" min="1" class="menu-qty-input form-control" />
+                    <button type="button" class="menu-qty-btn increase">+</button>
+                  </div>
+                  <button type="submit" class="menu-cart-btn btn btn-primary mt-2">Add to Cart</button>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
-    </div> 
-</div>
-        
+      </div>
     </div>
-</div>
+  </div>
+</section>
+
+
 <div th:replace="~{Footer :: Footer}"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
@@ -75,12 +74,12 @@ document.getElementById('sortByName').addEventListener('click', function() {
     sortItems('name');
 });
 
-document.getElementById('sortByRestuarantName').addEventListener('click', function() {
-    sortItems('restuarantName');
+document.getElementById('sortByRestaurantName').addEventListener('click', function() {
+    sortItems('restaurantName');
 });
 
 function sortItems(attribute) {
-    let itemsArray = Array.from(document.querySelectorAll('.col-md-4.mb-3'));
+    let itemsArray = Array.from(document.querySelectorAll('.menu-item'));
     itemsArray.sort(function(a, b) {
         let aValue = a.getAttribute(`data-${attribute}`);
         let bValue = b.getAttribute(`data-${attribute}`);
@@ -99,38 +98,36 @@ function sortItems(attribute) {
     });
 }
 
-// Attaching click event listeners to the sort buttons
-// This code assumes that you have buttons with id's 'sortByPrice', 'sortByName', and 'sortByDescription'
-document.getElementById('sortByPrice').onclick = function() {
-    sortItems('price');
-};
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Handle click events on quantity increment and decrement buttons
+    document.querySelectorAll('.menu-qty-btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+            const menuItemElement = event.target.closest('.menu-item');
+            const quantityInput = menuItemElement.querySelector('.menu-qty-input');
+            const priceElement = menuItemElement.querySelector('.menu-item-price');
+            const basePrice = parseFloat(priceElement.getAttribute('data-baseprice'));
+            let quantity = parseInt(quantityInput.value);
 
-document.getElementById('sortByName').onclick = function() {
-    sortItems('name');
-};
+            if (event.target.classList.contains('increase')) {
+                quantity++;
+            } else if (event.target.classList.contains('decrease')) {
+                quantity = quantity > 1 ? quantity - 1 : 1;
+            }
 
-document.getElementById('sortByRestuarantName').onclick = function() {
-    sortItems('restuarantName');
-};
+            quantityInput.value = quantity;
+            const newPrice = basePrice * quantity;
 
-document.querySelectorAll('.quantity-increase').forEach(function(button) {
-    button.addEventListener('click', function() {
-        let quantityInput = button.previousElementSibling;
-        quantityInput.value = parseInt(quantityInput.value) + 1;
+            if (!isNaN(newPrice)) {
+                priceElement.textContent = '$' + newPrice.toFixed(2);
+            } else {
+                console.error("Calculated price is NaN");
+            }
+        });
     });
 });
-
-document.querySelectorAll('.quantity-decrease').forEach(function(button) {
-    button.addEventListener('click', function() {
-        let quantityInput = button.nextElementSibling;
-        if (parseInt(quantityInput.value) > 1) {
-            quantityInput.value = parseInt(quantityInput.value) - 1;
-        }
-    });
-});
-
 
 </script>
+
 
 </body>
 </html>
