@@ -102,12 +102,23 @@ public class MenuController {
         if (user == null) {
             return "redirect:/login";
         }
-
-        // Get cart items from CartService
         List<CartItem> cartItems = cartService.viewCartItems(user.getUserId());
-
 		Cart cart = cartService.findCartByUserId(user.getUserId());
-        // Place the order
+        orderService.placeOrder(user, cartItems);
+        cartService.deleteCart(cart.getCartId());
+		redirectAttributes.addFlashAttribute("message", "Your Order Placed!");
+
+	    return "redirect:/orderConfirmation";
+    }
+	
+	@PostMapping("/removeOrder")
+    public String removeOrder(Model model,RedirectAttributes redirectAttributes) {
+        User user = (User) model.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        List<CartItem> cartItems = cartService.viewCartItems(user.getUserId());
+		Cart cart = cartService.findCartByUserId(user.getUserId());
         orderService.placeOrder(user, cartItems);
         cartService.deleteCart(cart.getCartId());
 		redirectAttributes.addFlashAttribute("message", "Your Order Placed!");

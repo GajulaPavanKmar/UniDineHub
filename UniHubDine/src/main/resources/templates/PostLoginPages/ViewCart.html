@@ -35,8 +35,11 @@
                                     <span class="badge bg-secondary" th:text="${cartItem.quantity}">Quantity</span>
                                 </div>
                                 <br>
-                                <button type="button" class="btn btn-danger">Remove</button>
-                            </div>
+                                
+ 							<form th:action="@{/removeOrder}" method="post" >
+					        		<button class="btn btn-dark w-100 mb-2">Place Order</button>
+					        </form>                            
+        				</div>
                             <div class="item-price text-end">
                                 <span class="fw-bold" th:text="${cartItem.menuItem.price}">$90.00</span>
                             </div>
