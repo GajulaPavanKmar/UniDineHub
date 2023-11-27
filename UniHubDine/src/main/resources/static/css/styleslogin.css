@@ -13,11 +13,11 @@
 
 .my-login-form .form-control {
     border-radius: 5px;
-    border: 1px solid #1F8A70;
+    border: 1px solid #DD1840;
 }
 
 .my-login-btn {
-    background-color: #1F8A70;
+    background-color: #DD1840;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -34,6 +34,6 @@
 }
 
 .my-login-new-account a {
-    color: #1F8A70;
+    color: #DD1840;
     font-weight: bold;
 }

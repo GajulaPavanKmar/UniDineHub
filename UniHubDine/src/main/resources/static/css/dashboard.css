@@ -1,4 +1,3 @@
-/* Unique Styles for the UniDineHub Info Section */
 .udh-info-section img.udh-info-img {
     max-width: 150px; /* Adjust size as needed */
     margin-bottom: 15px;
@@ -42,7 +41,7 @@
 
 .menu-section .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+    box-shadow: 0 6px 12px #DD1840; /* Increase shadow on hover */
 }
 
 .menu-section .card-img-top {
@@ -65,17 +64,15 @@
 }
 
 @media (max-width: 992px) {
-    /* Adjustments for smaller screens */
     .menu-section .col-md-4 {
-        flex: 0 0 50%; /* On small screens, two columns per row */
+        flex: 0 0 50%; 
         max-width: 50%;
     }
 }
 
 @media (max-width: 576px) {
-    /* Adjustments for extra small screens */
     .menu-section .col-md-4 {
-        flex: 0 0 100%; /* On extra small screens, one column per row */
+        flex: 0 0 100%;
         max-width: 100%;
     }
 }

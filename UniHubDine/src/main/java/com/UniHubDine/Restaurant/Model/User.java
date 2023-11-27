@@ -7,6 +7,7 @@ public class User {
 	private String useremail;
 	private String firstName;
 	private String lastName;
+	private String userRole;
 
 	public String getFirstName() {
 		return firstName;
@@ -48,12 +49,19 @@ public class User {
 		this.password = password;
 	}
 
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", useremail=" + useremail + ", firstName="
-				+ firstName + ", lastName=" + lastName + "]";
+				+ firstName + ", lastName=" + lastName + ", userRole=" + userRole + "]";
 	}
 
 	
-
 }

@@ -17,9 +17,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.UniHubDine.Restaurant.Model.ContactForm;
 import com.UniHubDine.Restaurant.Model.Menu;
+import com.UniHubDine.Restaurant.Model.OrderDetailDTO;
 import com.UniHubDine.Restaurant.Model.User;
 import com.UniHubDine.Restaurant.Service.ContactFormMongoService;
 import com.UniHubDine.Restaurant.Service.MenuService;
+import com.UniHubDine.Restaurant.Service.OrderService;
 import com.UniHubDine.Restaurant.Service.UserService;
 
 @Controller
@@ -34,16 +36,23 @@ public class UserController {
 
 	@Autowired
 	ContactFormMongoService mongoService;
+	
+	@Autowired
+	OrderService orderservice;
 
 	@RequestMapping("home")
 	public String homePage(Model model) {
 		model.addAttribute("contactForm", new ContactForm());
+		List<Menu> menus = menuService.findAll();
+		model.addAttribute("menus", menus);
 		return "HomePage";
 	}
 
 	@PostMapping("/home")
-	public String submitContactForm(@ModelAttribute ContactForm contactForm, RedirectAttributes redirectAttributes) {
+	public String submitContactForm(Model model, @ModelAttribute ContactForm contactForm, RedirectAttributes redirectAttributes) {
 		mongoService.saveContactForm(contactForm);
+		List<Menu> menus = menuService.findAll();
+		model.addAttribute("menus", menus);
 		redirectAttributes.addFlashAttribute("message", "Your contact form has been successfully submitted.");
 		return "redirect:/success";
 	}
@@ -59,14 +68,18 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String welcomePage(ModelMap model, @RequestParam String userId, @RequestParam String password) {
+	public String welcomePage(ModelMap model, @RequestParam String userId, @RequestParam String password,RedirectAttributes redirectAttributes) {
 		User user = userService.getUserByUserId(userId);
 		try {
 			if (user.getPassword().equals(password)) {
 				model.addAttribute("user", user);
 				List<Menu> menus = menuService.findAll();
 				model.addAttribute("menus", menus);
+				if(user.getUserRole().equalsIgnoreCase("REST")) {
+					return "redirect:/restDashBoard";
+				}else {
 				return "PostLoginPages/DashBoard";
+				}
 			}
 			model.put("errorMsg", "Please provide the correct details");
 			return "LoginPage";
@@ -75,7 +88,15 @@ public class UserController {
 			return "LoginPage";
 		}
 	}
-
+	
+	@RequestMapping(value = "restDashBoard", method = RequestMethod.GET)
+	public String restDashboard(ModelMap model) {
+		User user = (User) model.getAttribute("user");
+		List<OrderDetailDTO> orderList = orderservice.getOrderDetails(user.getUserId());
+		model.addAttribute("orderList", orderList);
+		return "PostLoginPages/RestDashBoard";
+	}
+	
 	@RequestMapping(value = "loginhome", method = RequestMethod.GET)
 	public String DashBoard(ModelMap model) {
 		User user = (User) model.getAttribute("user");

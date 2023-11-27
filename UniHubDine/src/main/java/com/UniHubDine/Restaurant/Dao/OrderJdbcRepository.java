@@ -2,6 +2,7 @@ package com.UniHubDine.Restaurant.Dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.UniHubDine.Restaurant.Model.Order;
+import com.UniHubDine.Restaurant.Model.OrderDetailDTO;
 import com.UniHubDine.Restaurant.Model.OrderDetails;
 
 @Repository
@@ -86,5 +88,30 @@ public class OrderJdbcRepository {
 
 		jdbcTemplate.batchUpdate(sql, batchArgs);
 	}
+	
+	public List<OrderDetailDTO> findOrderDetailsByUserId(String userId) {
+        String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name " +
+                     "FROM unidinehub.orders ord " +
+                     "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id " +
+                     "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id " +
+                     "JOIN unidinehub.user us ON us.user_id = ord.user_id " +
+                     "WHERE men.restaurant_name  = ?";
 
+        return jdbcTemplate.query(sql, new Object[]{userId}, new OrderDetailRowMapper());
+    }
+
+    private static final class OrderDetailRowMapper implements RowMapper<OrderDetailDTO> {
+        public OrderDetailDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+            OrderDetailDTO orderDetail = new OrderDetailDTO();
+            orderDetail.setFirstname(rs.getString("FIRSTNAME"));
+            orderDetail.setRestaurantName(rs.getString("restaurant_name"));
+            orderDetail.setOrderTimestamp(rs.getTimestamp("order_timestamp"));
+            orderDetail.setStatus(rs.getString("status"));
+            orderDetail.setQuantity(rs.getInt("quantity"));
+            orderDetail.setTotalPrice(rs.getDouble("total_price"));
+            orderDetail.setItemName(rs.getString("item_name"));
+            return orderDetail;
+        }
+    }
+	
 }
