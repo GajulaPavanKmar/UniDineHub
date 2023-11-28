@@ -77,7 +77,7 @@ public class OrderJdbcRepository {
 
 	// Insert a new order detail into the database
 	public void createOrderDetails(List<OrderDetails> orderDetails) {
-		String sql = "INSERT INTO order_details (order_id, item_id, quantity, price,user_id) VALUES (?, ?, ?, ?,?)";
+		String sql = "INSERT INTO order_details (order_id, item_id, quantity, price,user_id,status_order) VALUES (?, ?, ?, ?,?,'Pending')";
 
 		List<Object[]> batchArgs = new ArrayList<>();
 		for (OrderDetails orderDetail : orderDetails) {
@@ -99,6 +99,17 @@ public class OrderJdbcRepository {
 
         return jdbcTemplate.query(sql, new Object[]{userId}, new OrderDetailRowMapper());
     }
+	
+	public List<OrderDetailDTO> findCustomerOrderDetailsByUserId(String userId) {
+        String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, orde.status_order " +
+                     "FROM unidinehub.orders ord " +
+                     "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id " +
+                     "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id " +
+                     "JOIN unidinehub.user us ON us.user_id = ord.user_id " +
+                     "WHERE ord.user_id  = ?";
+
+        return jdbcTemplate.query(sql, new Object[]{userId}, new OrderDetailRowMapper());
+    }
 
     private static final class OrderDetailRowMapper implements RowMapper<OrderDetailDTO> {
         public OrderDetailDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -110,6 +121,7 @@ public class OrderJdbcRepository {
             orderDetail.setQuantity(rs.getInt("quantity"));
             orderDetail.setTotalPrice(rs.getDouble("total_price"));
             orderDetail.setItemName(rs.getString("item_name"));
+            orderDetail.setStatus_order(rs.getString("status_order"));
             return orderDetail;
         }
     }

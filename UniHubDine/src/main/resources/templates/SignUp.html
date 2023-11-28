@@ -9,46 +9,52 @@
 </head>
 <body>
 <div th:replace="Navbar :: Navbar"></div>
-<br>
- <div class="container my-signup-container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="my-signup-card">
+<div class="container my-signup-container mt-5">
+    <div class="row justify-content-center">
+        <!-- Left Column for Image -->
+        <div class="col-md-6 my-signup-image">
+            <img src="/UniDineHub/images/login/signup.png" alt="Sign Up" class="img-fluid">
+        </div>
+
+        <!-- Right Column for Signup Form -->
+        <div class="col-md-6">
+            <div class="my-signup-card">
                 <h2>Create Your Account</h2>
                 <div th:if="${errorMsg}" class="alert alert-danger" th:text="${errorMsg}"></div>
                 <div th:if="${successMsg}" class="alert alert-success" th:text="${successMsg}"></div>
-                <form th:action="@{/signup}" th:object="${user}" method="post">
-                    <div class="mb-4">
-                        <label for="signup-username" class="form-label">LoginID</label>
-                        <input type="text" class="form-control" id="signup-username" th:field="*{userId}" placeholder="Choose a unique username" required />
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <label for="signup-firstname" class="form-label">FirstName</label>
-                            <input type="text" class="form-control" id="signup-firstname" th:field="*{firstName}" placeholder="Your Firstname" required/>
+                    <form th:action="@{/signup}" th:object="${user}" method="post">
+                        <div class="mb-4">
+                            <label for="signup-username" class="form-label">LoginID</label>
+                            <input type="text" class="form-control" id="signup-username" th:field="*{userId}" placeholder="Choose a unique username" required />
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="signup-lastname" class="form-label">LastName</label>
-                            <input type="text" class="form-control" id="signup-lastname" th:field="*{lastName}" placeholder="Your Lastname" required/>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="signup-firstname" class="form-label">FirstName</label>
+                                <input type="text" class="form-control" id="signup-firstname" th:field="*{firstName}" placeholder="Your Firstname" required/>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="signup-lastname" class="form-label">LastName</label>
+                                <input type="text" class="form-control" id="signup-lastname" th:field="*{lastName}" placeholder="Your Lastname" required/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <label for="signup-email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="signup-email" th:field="*{useremail}" placeholder="Enter email Address" required/>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="signup-email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="signup-email" th:field="*{useremail}" placeholder="Enter email Address" required/>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="signup-password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="signup-password" th:field="*{password}" placeholder="Choose a password" required/>
+                            </div>
                         </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="signup-password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="signup-password" th:field="*{password}" placeholder="Choose a password" required/>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-block">Sign Up</button>
-                </form>
-			<p class="my-signup-login-link">Already have an account? <a th:href="@{/login}">Log In</a></p>
+                        <button type="submit" class="btn btn-block">Sign Up</button>
+                    </form>
+                <p class="my-signup-login-link">Already have an account? <a th:href="@{/login}">Log In</a></p>
             </div>
         </div>
     </div>
 </div>
+
 <div th:replace="~{Footer :: Footer}"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 </body>

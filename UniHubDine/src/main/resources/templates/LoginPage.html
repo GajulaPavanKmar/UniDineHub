@@ -22,6 +22,9 @@
         <div class="col-md-6">
             <div class="my-login-card">
                 <h2>Welcome Back!</h2>
+                <div class="alert alert-success" role="alert"th:if="${message}">
+				    <p th:text="${message}">Default message</p>
+				</div>
                 <form th:action="@{/login}" method="post" class="my-login-form">
                     <div class="mb-4">
                         <label for="login-username" class="form-label">Username</label>

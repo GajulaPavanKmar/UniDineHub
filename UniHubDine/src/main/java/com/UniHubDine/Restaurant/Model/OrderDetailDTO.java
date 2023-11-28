@@ -10,8 +10,8 @@ public class OrderDetailDTO {
     private Integer quantity;
     private Double totalPrice;
     private String itemName;
-
-    
+    private int orderId;
+    private String status_order;
 	public String getFirstname() {
 		return firstname;
 	}
@@ -54,12 +54,25 @@ public class OrderDetailDTO {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
+	
+	public int getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	
+	public String getStatus_order() {
+		return status_order;
+	}
+	public void setStatus_order(String status_order) {
+		this.status_order = status_order;
+	}
 	@Override
 	public String toString() {
 		return "OrderDetailDTO [firstname=" + firstname + ", restaurantName=" + restaurantName + ", orderTimestamp="
 				+ orderTimestamp + ", status=" + status + ", quantity=" + quantity + ", totalPrice=" + totalPrice
-				+ ", itemName=" + itemName + "]";
+				+ ", itemName=" + itemName + ", orderId=" + orderId + ", status_order=" + status_order + "]";
 	}
-	
 	
 }

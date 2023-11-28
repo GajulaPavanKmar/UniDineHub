@@ -1,5 +1,5 @@
 .udh-info-section img.udh-info-img {
-    max-width: 150px; /* Adjust size as needed */
+    max-width: 150px;
     margin-bottom: 15px;
 }
 
@@ -13,17 +13,17 @@
 }
 
 .udh-info-link {
-    text-decoration: none; /* Removes underline from links */
-    color: inherit; /* Inherits the text color from the parent */
+    text-decoration: none; 
+    color: inherit;
 }
 
 .udh-info-link:hover, .udh-info-link:focus {
-    text-decoration: none; /* Optional: Style for hover and focus states */
+    text-decoration: none; 
 }
 
 @media (max-width: 768px) {
     .udh-info-section img.udh-info-img {
-        max-width: 100px; /* Smaller size for mobile */
+        max-width: 100px; 
     }
 }
 

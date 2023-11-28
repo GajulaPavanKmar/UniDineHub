@@ -75,7 +75,7 @@
     <div class="row">
         <div th:each="menu : ${menus}" class="col-md-3 mb-4">
             <div class="card">
-                <a th:href="@{/menu/{id}/items(id=${menu.id})}">
+                <a th:href="@{/login}">
                     <img th:src="@{'/images/menu/'+ ${menu.image}}" class="card-img-top" alt="Menu Item" th:alt="${menu.name}">
                 </a>
                 <div class="card-body">
@@ -134,7 +134,7 @@
             </div>
             <div class="col-md-4">
                 <div class="partner-card">
-                    <img src="/UniDineHub/images/homepage/kfc.png" class="partner-img" alt="Starbucks">
+                    <img src="/UniDineHub/images/homepage/kfc.png" class="partner-img" alt="KFC">
                     <div class="card-body">
                         <h5 class="partner-title">KFC</h5>
                         <p class="partner-text">Finger-Licking Good: A Taste of Tradition.</p>

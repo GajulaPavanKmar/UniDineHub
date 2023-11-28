@@ -35,9 +35,8 @@
                                     <span class="badge bg-secondary" th:text="${cartItem.quantity}">Quantity</span>
                                 </div>
                                 <br>
-                                
- 							<form th:action="@{/removeOrder}" method="post" >
-					        		<button class="btn btn-dark w-100 mb-2">Place Order</button>
+ 							<form th:action="@{/removeOrder/{cartItemId}(cartItemId=${cartItem.cartItemId})}" method="post" >
+					        		<button class="btn btn-warning w-100 mb-2">Remove</button>
 					        </form>                            
         				</div>
                             <div class="item-price text-end">

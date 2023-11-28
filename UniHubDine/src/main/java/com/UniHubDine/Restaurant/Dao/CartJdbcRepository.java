@@ -76,7 +76,7 @@ public class CartJdbcRepository {
 
 	// Delete a cart by cart ID
 	public void deleteCart(Integer cartId) {
-		String sql = "DELETE FROM carts WHERE cart_id = ?";
+		String sql = "DELETE FROM cart_items WHERE cart_item_id = ?";
 		jdbcTemplate.update(sql, cartId);
 	}
 

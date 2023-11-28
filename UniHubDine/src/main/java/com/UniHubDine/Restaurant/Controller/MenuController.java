@@ -17,6 +17,7 @@ import com.UniHubDine.Restaurant.Model.Cart;
 import com.UniHubDine.Restaurant.Model.CartItem;
 import com.UniHubDine.Restaurant.Model.Menu;
 import com.UniHubDine.Restaurant.Model.MenuItem;
+import com.UniHubDine.Restaurant.Model.OrderDetailDTO;
 import com.UniHubDine.Restaurant.Model.User;
 import com.UniHubDine.Restaurant.Service.CartService;
 import com.UniHubDine.Restaurant.Service.MenuItemService;
@@ -37,7 +38,9 @@ public class MenuController {
 	@Autowired
     private OrderService orderService;
 
-
+	@Autowired
+	OrderService orderservice;
+	
 	@Autowired
 	public MenuController(MenuItemService menuItemService) {
 		this.menuItemService = menuItemService;
@@ -96,6 +99,16 @@ public class MenuController {
 		return "PostLoginPages/ViewCart";
 	}
 	
+	@GetMapping("/myAccount")
+	public String myAccount(Model model) {
+		User user = (User) model.getAttribute("user");
+		if (user == null) {
+			return "LoginPage";
+		}
+		List<OrderDetailDTO> orderList = orderservice.getCustomerOrderDetails(user.getUserId());
+		model.addAttribute("orderList", orderList);
+		return "PostLoginPages/myAccount";
+	}
 	@PostMapping("/placeOrder")
     public String placeOrder(Model model,RedirectAttributes redirectAttributes) {
         User user = (User) model.getAttribute("user");
@@ -111,21 +124,23 @@ public class MenuController {
 	    return "redirect:/orderConfirmation";
     }
 	
-	@PostMapping("/removeOrder")
-    public String removeOrder(Model model,RedirectAttributes redirectAttributes) {
+	@PostMapping("/removeOrder/{cartItemId}")
+    public String removeItemFromCart(@PathVariable("cartItemId") int cartItemId, Model model,RedirectAttributes redirectAttributes) {
         User user = (User) model.getAttribute("user");
         if (user == null) {
             return "redirect:/login";
         }
-        List<CartItem> cartItems = cartService.viewCartItems(user.getUserId());
-		Cart cart = cartService.findCartByUserId(user.getUserId());
-        orderService.placeOrder(user, cartItems);
-        cartService.deleteCart(cart.getCartId());
-		redirectAttributes.addFlashAttribute("message", "Your Order Placed!");
-
-	    return "redirect:/orderConfirmation";
-    }
-	
+        cartService.deleteCart(cartItemId);
+		return "redirect:/userCart";    
+	}
+	@PostMapping("/orderReady")
+    public String changeStatus(Model model,RedirectAttributes redirectAttributes) {
+        User user = (User) model.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+		return "redirect:/userCart";    
+	}
 	@GetMapping("/orderConfirmation")
 	public String orderConfirmation() {
 	    return "PostLoginPages/orderConfirm";
