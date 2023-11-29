@@ -59,10 +59,15 @@
 
 @media (max-width: 768px) {
     .my-signup-container .row {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Stack the form and image vertically */
     }
 
-    .my-signup-card {
+    .my-signup-image, .my-signup-card {
         margin-top: 20px;
+        padding: 20px;
+    }
+
+    .my-signup-image {
+        order: -1; /* Image will be placed on top */
     }
 }
