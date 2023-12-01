@@ -37,9 +37,9 @@ public class CartService {
         cartJdbcRepository.updateCart(cart);
     }
 
-    public void deleteCart(Integer cartId) {
-        cartJdbcRepository.deleteCart(cartId);
-//        cartJdbcRepository.deleteCartItems(cartId);
+    public boolean deleteCart(Integer cartId) {
+        boolean  delCartAfterPlcOrd =  cartJdbcRepository.deleteCart(cartId);
+        return delCartAfterPlcOrd;
     }
 
     public List<Cart> getAllCarts() {

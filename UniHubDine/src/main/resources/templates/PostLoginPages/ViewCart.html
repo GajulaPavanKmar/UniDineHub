@@ -76,15 +76,16 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCartSummary() {
         var cartItems = document.querySelectorAll('.cart-item');
         var subtotal = 0.0;
-        var shipping = 5.0; // Example fixed shipping cost
-        var taxRate = 0.08; // Example tax rate (8%)
+        var shipping = 0.0; 
+        var taxRate = 0.06; 
 
         // Calculate subtotal
         cartItems.forEach(function (item) {
             var priceText = item.querySelector('.item-price span').textContent;
             var price = parseFloat(priceText.replace('$', ''));
             var quantity = parseInt(item.querySelector('.badge').textContent);
-            subtotal += price * quantity;
+            subtotal += price ;
+            shipping = subtotal*0.05;
         });
 
         // Calculate tax and total

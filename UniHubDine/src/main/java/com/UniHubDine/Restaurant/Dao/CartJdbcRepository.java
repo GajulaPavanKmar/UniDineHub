@@ -75,9 +75,11 @@ public class CartJdbcRepository {
 	}
 
 	// Delete a cart by cart ID
-	public void deleteCart(Integer cartId) {
-		String sql = "DELETE FROM cart_items WHERE cart_item_id = ?";
-		jdbcTemplate.update(sql, cartId);
+	public boolean deleteCart(Integer cartId) {
+		String sql = "DELETE FROM cart_items WHERE cart_id = ?";
+		int rowsEffected = jdbcTemplate.update(sql, cartId);
+		return rowsEffected>1;
+		
 	}
 
 	// Get all carts
@@ -88,7 +90,7 @@ public class CartJdbcRepository {
 
 	// View Cart Items
 	public List<CartItem> viewCartItems(String userId) {
-		String sql = "SELECT ci.*, mi.menu_id , mi.item_name , mi.price " + "FROM cart_items ci "
+		String sql = "SELECT ci.*, mi.menu_id , mi.item_name , (ci.quantity*mi.price) as price " + "FROM cart_items ci "
 				+ "JOIN menu_items mi ON ci.item_id = mi.item_id  " + "WHERE ci.user_id = ?";
 		return jdbcTemplate.query(sql, cartItemRowMapper, userId);
 	}

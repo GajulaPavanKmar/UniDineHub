@@ -12,6 +12,7 @@ public class OrderDetailDTO {
     private String itemName;
     private int orderId;
     private String status_order;
+    
 	public String getFirstname() {
 		return firstname;
 	}

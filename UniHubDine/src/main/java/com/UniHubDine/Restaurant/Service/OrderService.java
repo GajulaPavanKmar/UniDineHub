@@ -26,7 +26,7 @@ public class OrderService {
     }
 
     @Transactional
-    public void placeOrder(User user, List<CartItem> cartItems) {
+    public boolean placeOrder(User user, List<CartItem> cartItems) {
         Order order = new Order();
         order.setUserId(user.getUserId());
         order.setStatus("Pending"); // initial order status as "Pending"
@@ -36,7 +36,12 @@ public class OrderService {
         
         List<OrderDetails> orderDetailsList = createOrderDetails(orderId, cartItems,user);
 
-        orderJdbcRepository.createOrderDetails(orderDetailsList);
+        boolean detailsInsertedSuccessfully = orderJdbcRepository.createOrderDetails(orderDetailsList);
+        if (!detailsInsertedSuccessfully) {
+            return false;
+        }
+
+        return true;
     }
 
     private List<OrderDetails> createOrderDetails(int orderId, List<CartItem> cartItems,User user) {
@@ -48,7 +53,6 @@ public class OrderService {
             orderDetail.setQuantity(cartItem.getQuantity());
             orderDetail.setPrice(cartItem.getMenuItem().getPrice());
             orderDetail.setUser_id(user.getUserId());
-            // ...
             orderDetailsList.add(orderDetail);
         }
         return orderDetailsList;

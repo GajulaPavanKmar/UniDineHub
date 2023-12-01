@@ -117,8 +117,16 @@ public class MenuController {
         }
         List<CartItem> cartItems = cartService.viewCartItems(user.getUserId());
 		Cart cart = cartService.findCartByUserId(user.getUserId());
-        orderService.placeOrder(user, cartItems);
-        cartService.deleteCart(cart.getCartId());
+        boolean placeOrder = orderService.placeOrder(user, cartItems);
+        if(placeOrder== false) {
+        	redirectAttributes.addFlashAttribute("message", "Order failed");
+    	    return "redirect:/orderConfirmation";
+        }
+        boolean deletingOrder = cartService.deleteCart(cart.getCartId());
+        if(deletingOrder== false) {
+        	redirectAttributes.addFlashAttribute("message", "Order failed");
+    	    return "redirect:/orderConfirmation";
+        }
 		redirectAttributes.addFlashAttribute("message", "Your Order Placed!");
 
 	    return "redirect:/orderConfirmation";
