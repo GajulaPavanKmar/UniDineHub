@@ -21,7 +21,9 @@ public class MenuItemServiceImpl implements MenuItemService {
 
     @Override
     public List<MenuItem> getMenuItemsByMenuId(int menuId) {
+    	System.out.println(menuItemDao.findByMenuId(menuId));
         return menuItemDao.findByMenuId(menuId);
+        
     }
     
 }

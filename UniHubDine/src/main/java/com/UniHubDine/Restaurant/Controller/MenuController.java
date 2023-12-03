@@ -122,7 +122,7 @@ public class MenuController {
         	redirectAttributes.addFlashAttribute("message", "Order failed");
     	    return "redirect:/orderConfirmation";
         }
-        boolean deletingOrder = cartService.deleteCart(cart.getCartId());
+        boolean deletingOrder = cartService.deleteFullCart(cart.getCartId());
         if(deletingOrder== false) {
         	redirectAttributes.addFlashAttribute("message", "Order failed");
     	    return "redirect:/orderConfirmation";

@@ -21,15 +21,15 @@
                     Your cart is empty.
                 </div>
                 <div th:unless="${emptyCart}" class="cart-items">
-                    <!-- Dynamic cart items here -->
                     <div th:each="cartItem : ${cartItems}" class="cart-item mb-3 p-2 d-flex">
                         <div class="image-container me-3">
-                            <!-- Replace with dynamic image source -->
-                            <img src="path-to-your-product-image.jpg" alt="Product Image" class="img-fluid">
+                            <img th:src="@{/images/menu/{path}(path=${cartItem.menuItem.imageUrl})}" alt="Product Image" class="img-fluid">
                         </div>
                         <div class="item-info w-100 d-flex justify-content-between">
                             <div>
                                 <h5 th:text="${cartItem.menuItem.name}">Product Name</h5>
+                                <h5 th:text="${cartItem.menuItem.imageUrl}">Product Name</h5>
+                                
                                 <p th:text="${cartItem.menuItem.description}">Description</p>
                                 <div class="d-flex align-items-center">
                                     <span class="badge bg-secondary" th:text="${cartItem.quantity}">Quantity</span>

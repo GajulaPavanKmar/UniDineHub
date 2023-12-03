@@ -42,6 +42,7 @@ public class CartJdbcRepository {
 		menuItem.setItemId(resultSet.getInt("item_id"));
 		menuItem.setName(resultSet.getString("item_name"));
 		menuItem.setPrice(resultSet.getDouble("price"));
+		menuItem.setImageUrl(resultSet.getString("image_path"));
 		cartItem.setMenuItem(menuItem);
 
 		return cartItem;
@@ -76,12 +77,17 @@ public class CartJdbcRepository {
 
 	// Delete a cart by cart ID
 	public boolean deleteCart(Integer cartId) {
-		String sql = "DELETE FROM cart_items WHERE cart_id = ?";
+		String sql = "DELETE FROM cart_items WHERE cart_item_id = ?";
 		int rowsEffected = jdbcTemplate.update(sql, cartId);
 		return rowsEffected>1;
 		
 	}
-
+	public boolean deleteFullCart(Integer cartId) {
+		String sql = "DELETE FROM carts WHERE cart_id = ?";
+		int rowsEffected = jdbcTemplate.update(sql, cartId);
+		return rowsEffected>0;
+		
+	}
 	// Get all carts
 	public List<Cart> getAllCarts() {
 		String sql = "SELECT * FROM carts";
@@ -90,8 +96,8 @@ public class CartJdbcRepository {
 
 	// View Cart Items
 	public List<CartItem> viewCartItems(String userId) {
-		String sql = "SELECT ci.*, mi.menu_id , mi.item_name , (ci.quantity*mi.price) as price " + "FROM cart_items ci "
-				+ "JOIN menu_items mi ON ci.item_id = mi.item_id  " + "WHERE ci.user_id = ?";
+		String sql = "SELECT ci.*, mi.menu_id , mi.item_name , (ci.quantity*mi.price) as price,  m.image_path  " + "FROM cart_items ci "
+				+ "JOIN menu_items mi ON ci.item_id = mi.item_id  JOIN menu m ON m.menu_id = mi.menu_id " + "WHERE ci.user_id = ?";
 		return jdbcTemplate.query(sql, cartItemRowMapper, userId);
 	}
 }

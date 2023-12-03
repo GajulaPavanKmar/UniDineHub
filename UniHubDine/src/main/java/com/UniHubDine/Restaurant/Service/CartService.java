@@ -15,42 +15,47 @@ import com.UniHubDine.Restaurant.Model.CartItem;
 @Transactional
 public class CartService {
 
-    private final CartJdbcRepository cartJdbcRepository;
+	private final CartJdbcRepository cartJdbcRepository;
 
-    @Autowired
-    public CartService(CartJdbcRepository cartJdbcRepository) {
-        this.cartJdbcRepository = cartJdbcRepository;
-    }
+	@Autowired
+	public CartService(CartJdbcRepository cartJdbcRepository) {
+		this.cartJdbcRepository = cartJdbcRepository;
+	}
 
-    public Cart createCart(String userId) {
-        Cart newCart = new Cart(userId);
-        newCart.setTimestamp(LocalDateTime.now()); 
-        cartJdbcRepository.createCart(newCart); 
-        return newCart; 
-    }
+	public Cart createCart(String userId) {
+		Cart newCart = new Cart(userId);
+		newCart.setTimestamp(LocalDateTime.now());
+		cartJdbcRepository.createCart(newCart);
+		return newCart;
+	}
 
-    public Cart findCartByUserId(String userId) {
-        return cartJdbcRepository.findCartByUserId(userId);
-    }
+	public Cart findCartByUserId(String userId) {
+		return cartJdbcRepository.findCartByUserId(userId);
+	}
 
-    public void updateCart(Cart cart) {
-        cartJdbcRepository.updateCart(cart);
-    }
+	public void updateCart(Cart cart) {
+		cartJdbcRepository.updateCart(cart);
+	}
 
-    public boolean deleteCart(Integer cartId) {
-        boolean  delCartAfterPlcOrd =  cartJdbcRepository.deleteCart(cartId);
-        return delCartAfterPlcOrd;
-    }
+	public boolean deleteCart(Integer cartId) {
+		boolean delCartAfterPlcOrd = cartJdbcRepository.deleteCart(cartId);
+		return delCartAfterPlcOrd;
+	}
 
-    public List<Cart> getAllCarts() {
-        return cartJdbcRepository.getAllCarts();
-    }
+	public boolean deleteFullCart(Integer cartId) {
+		boolean delCartAfterPlcOrd = cartJdbcRepository.deleteFullCart(cartId);
+		return delCartAfterPlcOrd;
+	}
 
-    public void addToCart(Integer cartId, String userId, Integer itemId, Integer quantity) {
-        cartJdbcRepository.addToCart(cartId, userId, itemId, quantity);
-    }
-    
-    public List<CartItem> viewCartItems(String userId) {
-    	return cartJdbcRepository.viewCartItems(userId);
-    }
+	public List<Cart> getAllCarts() {
+		return cartJdbcRepository.getAllCarts();
+	}
+
+	public void addToCart(Integer cartId, String userId, Integer itemId, Integer quantity) {
+		cartJdbcRepository.addToCart(cartId, userId, itemId, quantity);
+	}
+
+	public List<CartItem> viewCartItems(String userId) {
+		return cartJdbcRepository.viewCartItems(userId);
+	}
 }
