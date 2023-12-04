@@ -8,6 +8,7 @@ public class OrderDetails {
     private int quantity;
     private double price;
     private String user_id;
+    private String status_order;
     
 	public int getOrderDetailId() {
 		return orderDetailId;
@@ -45,11 +46,17 @@ public class OrderDetails {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+	public String getStatus_order() {
+		return status_order;
+	}
+	public void setStatus_order(String status_order) {
+		this.status_order = status_order;
+	}
 	@Override
 	public String toString() {
 		return "OrderDetails [orderDetailId=" + orderDetailId + ", orderId=" + orderId + ", itemId=" + itemId
-				+ ", quantity=" + quantity + ", price=" + price + ", user_id=" + user_id + "]";
+				+ ", quantity=" + quantity + ", price=" + price + ", user_id=" + user_id + ", status_order="
+				+ status_order + "]";
 	}
-	
 
 }

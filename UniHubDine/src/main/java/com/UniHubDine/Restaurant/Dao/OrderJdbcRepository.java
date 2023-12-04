@@ -17,6 +17,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.UniHubDine.Restaurant.Model.Cart;
 import com.UniHubDine.Restaurant.Model.Order;
 import com.UniHubDine.Restaurant.Model.OrderDetailDTO;
 import com.UniHubDine.Restaurant.Model.OrderDetails;
@@ -52,6 +53,11 @@ public class OrderJdbcRepository {
 		return orderDetail;
 	};
 
+	public void updateOrder(int orderDetailId) {
+		String sql = "UPDATE order_details SET status_order = 'Ready for PickUp' WHERE order_detail_id = ?";
+		jdbcTemplate.update(sql,orderDetailId);
+	}
+
 	public int createOrder(Order order) {
 		String sql = "INSERT INTO orders (user_id, order_timestamp, status, pickup_timestamp) VALUES (?, ?, ?, ?)";
 
@@ -76,62 +82,60 @@ public class OrderJdbcRepository {
 	}
 
 	public boolean createOrderDetails(List<OrderDetails> orderDetails) {
-	    String sql = "INSERT INTO order_details (order_id, item_id, quantity, price, user_id, status_order) VALUES (?, ?, ?, ?, ?, 'Pending')";
+		String sql = "INSERT INTO order_details (order_id, item_id, quantity, price, user_id, status_order) VALUES (?, ?, ?, ?, ?, 'Pending')";
 
-	    List<Object[]> batchArgs = new ArrayList<>();
-	    for (OrderDetails orderDetail : orderDetails) {
-	        Object[] values = new Object[] { orderDetail.getOrderId(), orderDetail.getItemId(),
-	                orderDetail.getQuantity(), orderDetail.getPrice(), orderDetail.getUser_id() };
-	        batchArgs.add(values);
-	    }
+		List<Object[]> batchArgs = new ArrayList<>();
+		for (OrderDetails orderDetail : orderDetails) {
+			Object[] values = new Object[] { orderDetail.getOrderId(), orderDetail.getItemId(),
+					orderDetail.getQuantity(), orderDetail.getPrice(), orderDetail.getUser_id() };
+			batchArgs.add(values);
+		}
 
-	    int[] updateCounts = jdbcTemplate.batchUpdate(sql, batchArgs);
+		int[] updateCounts = jdbcTemplate.batchUpdate(sql, batchArgs);
 
-	    for (int count : updateCounts) {
-	        if (count != 1) {
-	            return false;
-	        }
-	    }
+		for (int count : updateCounts) {
+			if (count != 1) {
+				return false;
+			}
+		}
 
-	    return true;
+		return true;
 	}
 
-	
 	public List<OrderDetailDTO> findOrderDetailsByUserId(String userId) {
-        String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, " +
-                     "orde.status_order  FROM unidinehub.orders ord " +
-                     "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id " +
-                     "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id " +
-                     "JOIN unidinehub.user us ON us.user_id = ord.user_id " +
-                     "WHERE men.restaurant_name  = ?";
+		String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, "
+				+ "orde.status_order, orde.order_detail_id FROM unidinehub.orders ord "
+				+ "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id "
+				+ "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id "
+				+ "JOIN unidinehub.user us ON us.user_id = ord.user_id " + "WHERE men.restaurant_name  = ? and orde.status_order ='Pending'";
 
-        return jdbcTemplate.query(sql, new Object[]{userId}, new OrderDetailRowMapper());
-    }
-	
+		return jdbcTemplate.query(sql, new Object[] { userId }, new OrderDetailRowMapper());
+	}
+
 	public List<OrderDetailDTO> findCustomerOrderDetailsByUserId(String userId) {
-        String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, orde.status_order " +
-                     "orde.status_order FROM unidinehub.orders ord " +
-                     "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id " +
-                     "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id " +
-                     "JOIN unidinehub.user us ON us.user_id = ord.user_id " +
-                     "WHERE ord.user_id  = ?";
+		String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, orde.status_order ,"
+				+ "orde.status_order, orde.order_detail_id FROM unidinehub.orders ord "
+				+ "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id "
+				+ "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id "
+				+ "JOIN unidinehub.user us ON us.user_id = ord.user_id " + "WHERE ord.user_id  = ?";
 
-        return jdbcTemplate.query(sql, new Object[]{userId}, new OrderDetailRowMapper());
-    }
+		return jdbcTemplate.query(sql, new Object[] { userId }, new OrderDetailRowMapper());
+	}
 
-    private static final class OrderDetailRowMapper implements RowMapper<OrderDetailDTO> {
-        public OrderDetailDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-            OrderDetailDTO orderDetail = new OrderDetailDTO();
-            orderDetail.setFirstname(rs.getString("FIRSTNAME"));
-            orderDetail.setRestaurantName(rs.getString("restaurant_name"));
-            orderDetail.setOrderTimestamp(rs.getTimestamp("order_timestamp"));
-            orderDetail.setStatus(rs.getString("status"));
-            orderDetail.setQuantity(rs.getInt("quantity"));
-            orderDetail.setTotalPrice(rs.getDouble("total_price"));
-            orderDetail.setItemName(rs.getString("item_name"));
-            orderDetail.setStatus_order(rs.getString("status_order"));
-            return orderDetail;
-        }
-    }
-	
+	private static final class OrderDetailRowMapper implements RowMapper<OrderDetailDTO> {
+		public OrderDetailDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			OrderDetailDTO orderDetail = new OrderDetailDTO();
+			orderDetail.setFirstname(rs.getString("FIRSTNAME"));
+			orderDetail.setRestaurantName(rs.getString("restaurant_name"));
+			orderDetail.setOrderTimestamp(rs.getTimestamp("order_timestamp"));
+			orderDetail.setStatus(rs.getString("status"));
+			orderDetail.setQuantity(rs.getInt("quantity"));
+			orderDetail.setTotalPrice(rs.getDouble("total_price"));
+			orderDetail.setItemName(rs.getString("item_name"));
+			orderDetail.setStatus_order(rs.getString("status_order"));
+			orderDetail.setOrder_detail_id(rs.getInt("order_detail_id"));
+			return orderDetail;
+		}
+	}
+
 }

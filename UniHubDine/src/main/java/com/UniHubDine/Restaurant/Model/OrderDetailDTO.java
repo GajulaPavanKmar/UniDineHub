@@ -3,6 +3,7 @@ package com.UniHubDine.Restaurant.Model;
 import java.sql.Timestamp;
 
 public class OrderDetailDTO {
+	private int order_detail_id;
     private String firstname;
     private String restaurantName;
     private Timestamp orderTimestamp;
@@ -13,6 +14,12 @@ public class OrderDetailDTO {
     private int orderId;
     private String status_order;
     
+	public int getOrder_detail_id() {
+		return order_detail_id;
+	}
+	public void setOrder_detail_id(int order_detail_id) {
+		this.order_detail_id = order_detail_id;
+	}
 	public String getFirstname() {
 		return firstname;
 	}
@@ -71,9 +78,12 @@ public class OrderDetailDTO {
 	}
 	@Override
 	public String toString() {
-		return "OrderDetailDTO [firstname=" + firstname + ", restaurantName=" + restaurantName + ", orderTimestamp="
-				+ orderTimestamp + ", status=" + status + ", quantity=" + quantity + ", totalPrice=" + totalPrice
-				+ ", itemName=" + itemName + ", orderId=" + orderId + ", status_order=" + status_order + "]";
+		return "OrderDetailDTO [order_detail_id=" + order_detail_id + ", firstname=" + firstname + ", restaurantName="
+				+ restaurantName + ", orderTimestamp=" + orderTimestamp + ", status=" + status + ", quantity="
+				+ quantity + ", totalPrice=" + totalPrice + ", itemName=" + itemName + ", orderId=" + orderId
+				+ ", status_order=" + status_order + "]";
 	}
+
+
 	
 }

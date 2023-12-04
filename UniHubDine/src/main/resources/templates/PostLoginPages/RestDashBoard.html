@@ -57,7 +57,7 @@
                     <td th:text="${order.quantity}">Quantity</td>
                     <td th:text="${order.totalPrice}">Total Price</td>
                     <td th:text="${order.itemName}">Item Name</td>
-                    <td><a th:href = "@{orderReady/orderId}" class="btn btn-danger">Ready for Pickup</a></td>
+                    <td><a th:href="@{/orderReady/{orderId}(orderId=${order.order_detail_id})}" class="btn btn-danger">Ready for Pickup</a></td>
                 </tr>
             </tbody>
         </table>

@@ -1,6 +1,8 @@
 package com.UniHubDine.Restaurant.Controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +42,7 @@ public class UserController {
 
 	@Autowired
 	ContactFormMongoService mongoService;
-	
+
 	@Autowired
 	OrderService orderservice;
 
@@ -49,17 +53,26 @@ public class UserController {
 		model.addAttribute("menus", menus);
 		return "HomePage";
 	}
-	
+
+	@GetMapping("/api/home")
+	@ResponseBody
+	public Map<String, Object> getHomePageApi() {
+		Map<String, Object> response = new HashMap<>();
+		response.put("contactForm", new ContactForm());
+		response.put("menus", menuService.findAll());
+		return response;
+	}
+
 	@GetMapping("/api/menus")
 	@ResponseBody
 	public List<Menu> getMenusApi() {
-	    List<Menu> menus = menuService.findAll();
-	    return menus;
+		List<Menu> menus = menuService.findAll();
+		return menus;
 	}
 
-
 	@PostMapping("/home")
-	public String submitContactForm(Model model, @ModelAttribute ContactForm contactForm, RedirectAttributes redirectAttributes) {
+	public String submitContactForm(Model model, @ModelAttribute ContactForm contactForm,
+			RedirectAttributes redirectAttributes) {
 		mongoService.saveContactForm(contactForm);
 		List<Menu> menus = menuService.findAll();
 		model.addAttribute("menus", menus);
@@ -72,23 +85,30 @@ public class UserController {
 		return "ContactFormSuccess";
 	}
 
+	@GetMapping("/api/success")
+	@ResponseBody
+	public ResponseEntity<String> showSuccessApi() {
+		return ResponseEntity.ok("Form submitted successfully.");
+	}
+
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String loginPage() {
 		return "LoginPage";
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String welcomePage(ModelMap model, @RequestParam String userId, @RequestParam String password,RedirectAttributes redirectAttributes) {
+	public String welcomePage(ModelMap model, @RequestParam String userId, @RequestParam String password,
+			RedirectAttributes redirectAttributes) {
 		User user = userService.getUserByUserId(userId);
 		try {
 			if (user.getPassword().equals(password)) {
 				model.addAttribute("user", user);
 				List<Menu> menus = menuService.findAll();
 				model.addAttribute("menus", menus);
-				if(user.getUserRole().equalsIgnoreCase("REST")) {
+				if (user.getUserRole().equalsIgnoreCase("REST")) {
 					return "redirect:/restDashBoard";
-				}else {
-				return "PostLoginPages/DashBoard";
+				} else {
+					return "PostLoginPages/DashBoard";
 				}
 			}
 			model.put("errorMsg", "Please provide the correct details");
@@ -98,15 +118,7 @@ public class UserController {
 			return "LoginPage";
 		}
 	}
-	
-	@RequestMapping(value = "restDashBoard", method = RequestMethod.GET)
-	public String restDashboard(ModelMap model) {
-		User user = (User) model.getAttribute("user");
-		List<OrderDetailDTO> orderList = orderservice.getOrderDetails(user.getUserId());
-		model.addAttribute("orderList", orderList);
-		return "PostLoginPages/RestDashBoard";
-	}
-	
+
 	@RequestMapping(value = "loginhome", method = RequestMethod.GET)
 	public String DashBoard(ModelMap model) {
 		User user = (User) model.getAttribute("user");
@@ -137,4 +149,23 @@ public class UserController {
 		model.put("successMag", "User Created");
 		return "LoginPage";
 	}
+
+	@RequestMapping(value = "restDashBoard", method = RequestMethod.GET)
+	public String restDashboard(ModelMap model) {
+		User user = (User) model.getAttribute("user");
+		List<OrderDetailDTO> orderList = orderservice.getOrderDetails(user.getUserId());
+		model.addAttribute("orderList", orderList);
+		return "PostLoginPages/RestDashBoard";
+	}
+
+	@GetMapping("/orderReady/{orderId}")
+	public String makeOrderReady(@PathVariable("orderId") Integer orderId, ModelMap model) {
+		User user = (User) model.getAttribute("user");
+		orderservice.updateOrderDetailId(orderId);
+		List<OrderDetailDTO> orderList = orderservice.getOrderDetails(user.getUserId());
+		model.addAttribute("orderList", orderList);
+
+		return "PostLoginPages/RestDashBoard";
+	}
+
 }

@@ -64,4 +64,7 @@ public class OrderService {
     public List<OrderDetailDTO> getCustomerOrderDetails(String userId) {
         return orderJdbcRepository.findCustomerOrderDetailsByUserId(userId);
     }
+    public void updateOrderDetailId(int orderDetailId) {
+    	orderJdbcRepository.updateOrder(orderDetailId);
+    }
 }

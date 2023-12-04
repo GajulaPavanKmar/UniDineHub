@@ -28,7 +28,6 @@
                         <div class="item-info w-100 d-flex justify-content-between">
                             <div>
                                 <h5 th:text="${cartItem.menuItem.name}">Product Name</h5>
-                                <h5 th:text="${cartItem.menuItem.imageUrl}">Product Name</h5>
                                 
                                 <p th:text="${cartItem.menuItem.description}">Description</p>
                                 <div class="d-flex align-items-center">
@@ -36,7 +35,7 @@
                                 </div>
                                 <br>
  							<form th:action="@{/removeOrder/{cartItemId}(cartItemId=${cartItem.cartItemId})}" method="post" >
-					        		<button class="btn btn-warning w-100 mb-2">Remove</button>
+					        		<button class="btn btn-warning">Remove</button>
 					        </form>                            
         				</div>
                             <div class="item-price text-end">

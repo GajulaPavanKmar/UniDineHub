@@ -1,0 +1,58 @@
+@charset "ISO-8859-1";
+
+.card {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-text {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.card-title {
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+
+.item-name {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.restaurant-name {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.price {
+	color: red;
+	font-weight: bold;
+}
+
+.ready-yes {
+	color: green;
+	font-weight: bold;
+}
+
+.ready-no {
+	color: red;
+	font-weight: bold;
+}
+
+.ready-pickup {
+	color: green;
+	font-weight: bold;
+}
+
+.ready-pending {
+	color: #FFBF00;
+	font-weight: bold;
+}

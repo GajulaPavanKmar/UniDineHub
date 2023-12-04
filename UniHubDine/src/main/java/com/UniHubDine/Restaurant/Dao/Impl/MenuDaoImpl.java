@@ -29,7 +29,7 @@ public class MenuDaoImpl extends JdbcDaoSupport implements MenuDao {
 
     @Override
     public List<Menu> findAll() {
-        String sql = "SELECT * FROM menu";
+        String sql = "SELECT * FROM menu order by menu_name";
         return getJdbcTemplate().query(sql, new MenuRowMapper());
     }
 
