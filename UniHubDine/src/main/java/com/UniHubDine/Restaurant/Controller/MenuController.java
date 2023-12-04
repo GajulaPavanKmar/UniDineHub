@@ -1,15 +1,21 @@
 package com.UniHubDine.Restaurant.Controller;
 
-import java.lang.ProcessBuilder.Redirect;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -23,11 +29,14 @@ import com.UniHubDine.Restaurant.Service.CartService;
 import com.UniHubDine.Restaurant.Service.MenuItemService;
 import com.UniHubDine.Restaurant.Service.MenuService;
 import com.UniHubDine.Restaurant.Service.OrderService;
+import com.UniHubDine.Restaurant.Service.UserService;
 
 @Controller
 @SessionAttributes("user")
 public class MenuController {
 
+	@Autowired
+	private UserService userService;
 	@Autowired
 	MenuService menuService;
 
@@ -52,6 +61,7 @@ public class MenuController {
 		model.addAttribute("menus", menus);
 		return "PostLoginPages/Menu";
 	}
+	
 
 	@GetMapping("/menu/{menuId}/items")
 	public String showMenuItems(@PathVariable("menuId") int menuId, Model model) {
@@ -141,17 +151,101 @@ public class MenuController {
         cartService.deleteCart(cartItemId);
 		return "redirect:/userCart";    
 	}
-	@PostMapping("/orderReady")
-    public String changeStatus(Model model,RedirectAttributes redirectAttributes) {
-        User user = (User) model.getAttribute("user");
-        if (user == null) {
-            return "redirect:/login";
-        }
-		return "redirect:/userCart";    
-	}
+
+	/*
+	 * @PostMapping("/orderReady") public String changeStatus(Model
+	 * model,RedirectAttributes redirectAttributes) { User user = (User)
+	 * model.getAttribute("user"); if (user == null) { return "redirect:/login"; }
+	 * return "redirect:/userCart"; }
+	 */
+	
 	@GetMapping("/orderConfirmation")
 	public String orderConfirmation() {
 	    return "PostLoginPages/orderConfirm";
 	}
 
+	@GetMapping("/api/menus")
+	@ResponseBody
+	public List<Menu> getMenusApi() {
+		List<Menu> menus = menuService.findAll();
+		return menus;
+	}
+
+    @GetMapping("/api/menus/{menuId}/items")
+    @ResponseBody
+    public List<MenuItem> getMenuItems(@PathVariable("menuId") int menuId) {
+        return menuItemService.getMenuItemsByMenuId(menuId);
+    }
+
+    @PostMapping("/api/menus/{menuId}/items/addToCart")
+    @ResponseBody
+    public String addToCart(@RequestParam("itemId") Integer itemId, @RequestParam("quantity") Integer quantity,
+                            @PathVariable("menuId") int menuId, @ModelAttribute("user") User user) {
+        String userId = user.getUserId();
+        Cart cart = cartService.findCartByUserId(userId);
+        if (cart == null) {
+            cart = cartService.createCart(userId);
+        }
+        cartService.addToCart(cart.getCartId(), userId, itemId, quantity);
+        return "Item added to cart!";
+    }
+
+    @GetMapping("/api/userCart")
+    @ResponseBody
+    public ResponseEntity<?> viewCart(@RequestParam("userId") String userId) {
+        if (userId == null || userId.isEmpty()) {
+            return ResponseEntity.badRequest().body("User ID is required");
+        }
+
+        Cart cart = cartService.findCartByUserId(userId);
+        if (cart == null) {
+            return ResponseEntity.ok(new HashMap<String, Boolean>() {{ put("emptyCart", true); }});
+        } else {
+            List<CartItem> cartItems = cartService.viewCartItems(userId);
+            Map<String, Object> response = new HashMap<>();
+            response.put("cart", cart);
+            response.put("cartItems", cartItems);
+            return ResponseEntity.ok(response);
+        }
+    }
+
+
+    @GetMapping("/api/myAccount")
+    @ResponseBody
+    public List<OrderDetailDTO> myAccount(@RequestParam("userId") String userId) {
+        if (userId == null) {
+            return null;
+        }
+        return orderService.getCustomerOrderDetails(userId);
+    }
+
+    @PostMapping("/api/placeOrder")
+    @ResponseBody
+    public String placeOrder(@RequestParam("userId") String userId) {
+        User user = userService.getUserByUserId(userId); 
+        if (user.getUserId() == null) {
+            return "User not logged in";
+        }
+        List<CartItem> cartItems = cartService.viewCartItems(user.getUserId());
+        Cart cart = cartService.findCartByUserId(user.getUserId());
+        boolean placeOrder = orderService.placeOrder(user, cartItems);
+        if (!placeOrder) {
+            return "Order failed";
+        }
+        cartService.deleteFullCart(cart.getCartId());
+        return "Your Order Placed!";
+    }
+
+    @PostMapping("/api/removeOrder/{cartItemId}")
+    @ResponseBody
+    public String removeItemFromCart(@PathVariable("cartItemId") int cartItemId, @RequestParam("userId") String userId) {
+        User user = userService.getUserByUserId(userId); 
+        if (user == null) {
+            return "User not logged in";
+        }
+        cartService.deleteCart(cartItemId);
+        return "Item removed from cart";
+    }
+    
+    
 }

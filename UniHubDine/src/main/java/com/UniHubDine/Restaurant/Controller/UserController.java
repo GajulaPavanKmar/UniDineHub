@@ -63,13 +63,6 @@ public class UserController {
 		return response;
 	}
 
-	@GetMapping("/api/menus")
-	@ResponseBody
-	public List<Menu> getMenusApi() {
-		List<Menu> menus = menuService.findAll();
-		return menus;
-	}
-
 	@PostMapping("/home")
 	public String submitContactForm(Model model, @ModelAttribute ContactForm contactForm,
 			RedirectAttributes redirectAttributes) {
@@ -167,5 +160,19 @@ public class UserController {
 
 		return "PostLoginPages/RestDashBoard";
 	}
+	
+	@PostMapping("/api/orderReady/{orderId}")
+    @ResponseBody
+    public String changeOrderStatus(@RequestParam("userId") String userId, @PathVariable("orderId") Integer orderId,  ModelMap model) {
+        User user = userService.getUserByUserId(userId); 
+        if (user == null) {
+            return "User not logged in";
+        }
+        orderservice.updateOrderDetailId(orderId);
+		List<OrderDetailDTO> orderList = orderservice.getOrderDetails(user.getUserId());
+		model.addAttribute("orderList", orderList);
+
+        return "Order status changed";
+    }
 
 }
