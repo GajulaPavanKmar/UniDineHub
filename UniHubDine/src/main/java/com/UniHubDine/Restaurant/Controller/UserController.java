@@ -1,5 +1,6 @@
 package com.UniHubDine.Restaurant.Controller;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -111,7 +112,7 @@ public class UserController {
 			return "LoginPage";
 		}
 	}
-
+	
 	@RequestMapping(value = "loginhome", method = RequestMethod.GET)
 	public String DashBoard(ModelMap model) {
 		User user = (User) model.getAttribute("user");
@@ -124,7 +125,7 @@ public class UserController {
 			return "LoginPage";
 		}
 	}
-
+	
 	@RequestMapping(value = "signup", method = RequestMethod.GET)
 	public String signupPage(Model model) {
 		User user = new User();
@@ -161,6 +162,32 @@ public class UserController {
 		return "PostLoginPages/RestDashBoard";
 	}
 	
+	@GetMapping("/api/dashboard")
+	@ResponseBody
+    public ResponseEntity<?> getDashboard() {
+        try {
+            List<Menu> menus = menuService.findAll();
+            return ResponseEntity.ok(menus); 
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("An error occurred while fetching the menus");
+        }
+    }
+	@PostMapping("/api/login")
+	@ResponseBody
+    public ResponseEntity<?> login(@RequestParam String userId, @RequestParam String password) {
+        try {
+            User user = userService.getUserByUserId(userId);
+
+            if (user != null && user.getPassword().equals(password)) {
+                List<Menu> menus = menuService.findAll();
+                return ResponseEntity.ok(menus); 
+            } else {
+                return ResponseEntity.badRequest().body("Please provide the correct details");
+            }
+        } catch (Exception e) {
+            return ResponseEntity.ok(Collections.emptyList());
+        }
+    }
 	@PostMapping("/api/orderReady/{orderId}")
     @ResponseBody
     public String changeOrderStatus(@RequestParam("userId") String userId, @PathVariable("orderId") Integer orderId,  ModelMap model) {
