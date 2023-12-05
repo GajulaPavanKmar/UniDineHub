@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.UniHubDine.Restaurant.Dao.CartJdbcRepository;
 import com.UniHubDine.Restaurant.Model.Cart;
 import com.UniHubDine.Restaurant.Model.CartItem;
+import com.UniHubDine.Restaurant.Model.MenuItem;
 
 @Service
 @Transactional
@@ -57,5 +58,14 @@ public class CartService {
 
 	public List<CartItem> viewCartItems(String userId) {
 		return cartJdbcRepository.viewCartItems(userId);
+	}
+
+	public List<MenuItem> getMIByMenuId(int menuId, String userId) {
+		return cartJdbcRepository.getMIByMenuId(menuId,userId);
+	}
+
+	public boolean updateItem(Integer itemId, String userId, Double calories, Double price) {
+		boolean updateitem =  cartJdbcRepository.updateItem(itemId,userId,calories,price);
+		return updateitem;
 	}
 }

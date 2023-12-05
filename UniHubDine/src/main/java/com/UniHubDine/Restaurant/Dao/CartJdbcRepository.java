@@ -22,13 +22,23 @@ public class CartJdbcRepository {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	// RowMapper for Cart entity
 	private final RowMapper<Cart> cartRowMapper = (resultSet, rowNum) -> {
 		Cart cart = new Cart();
 		cart.setCartId(resultSet.getInt("cart_id"));
 		cart.setUserId(resultSet.getString("user_id"));
 		cart.setTimestamp(resultSet.getTimestamp("timestamp").toLocalDateTime());
 		return cart;
+	};
+
+	private final RowMapper<MenuItem> menuItemMapper = (resultSet, rowNum) -> {
+		MenuItem mitem = new MenuItem();
+		mitem.setItemId(resultSet.getInt("item_id"));
+		mitem.setMenuId(resultSet.getInt("menu_id"));
+//		mitem.setCalories(resultSet.getInt("description"));
+		mitem.setName(resultSet.getString("item_name"));
+		mitem.setPrice(resultSet.getDouble("price"));
+		mitem.setImageUrl(resultSet.getString("image_url"));
+		return mitem;
 	};
 
 	private final RowMapper<CartItem> cartItemRowMapper = (resultSet, rowNum) -> {
@@ -99,5 +109,17 @@ public class CartJdbcRepository {
 		String sql = "SELECT ci.*, mi.menu_id , mi.item_name , (ci.quantity*mi.price) as price,  m.image_path  " + "FROM cart_items ci "
 				+ "JOIN menu_items mi ON ci.item_id = mi.item_id  JOIN menu m ON m.menu_id = mi.menu_id " + "WHERE ci.user_id = ?";
 		return jdbcTemplate.query(sql, cartItemRowMapper, userId);
+	}
+
+	public List<MenuItem> getMIByMenuId(int menuId, String userId) {
+		String sql = "SELECT * from menu_items"
+				+ " WHERE menu_id=? and restaurant_name=? ";
+		return jdbcTemplate.query(sql, menuItemMapper, menuId, userId);
+	}
+
+	public boolean updateItem(Integer itemId, String userId, Double calories, Double price) {
+		String sql = "UPDATE menu_items SET calories =?, price = ? where item_id =? and restaurant_name=?  ";
+		int rowsEffected =jdbcTemplate.update(sql ,calories,price,itemId,userId);
+		return rowsEffected>0;
 	}
 }
