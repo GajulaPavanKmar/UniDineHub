@@ -139,5 +139,30 @@ public class RestaurantController {
 	    return "Successfully updated in menu";
 	}
 
+	@PostMapping("/api/deleteMenu/{id}/menuItems")
+	@ResponseBody
+	public String deleteRestMenuApi(@PathVariable("id") int menuId,
+	    @RequestParam("itemId") Integer itemId,@RequestParam("userId") String userId) {
+		User user = userService.getUserByUserId(userId);
+		boolean deleteValue = cartService.deleteMenuItem(itemId, user.getUserId());
+	    if(!deleteValue) {
+	        return "Failed to delete the item from menu";
+	    }
+	    return "Successfully deleted from menu";
+	}
+
+	@PostMapping("/api/addNewMenu/{id}/menuItems")
+	@ResponseBody
+	public String addNewMenuItemApi(@PathVariable("id") int menuId,
+	    @RequestParam("newItemName") String newItemName, @RequestParam("newItemCalories") Double newItemCalories, 
+	    @RequestParam("newItemPrice") Double newItemPrice, @RequestParam("userId") String userId) {
+		User user = userService.getUserByUserId(userId);
+		boolean insertNewItem = cartService.insertNewItem(menuId, newItemName, newItemCalories, newItemPrice, user.getUserId());	   
+		if(!insertNewItem) {
+	        return "Failed to add the item in menu";
+	    }
+	    return "Successfully added the item in menu";
+	}
+
 
 }
