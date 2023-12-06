@@ -19,7 +19,7 @@
 
 .udh-info-link:hover, .udh-info-link:focus {
     text-decoration: none; 
-}
+}	
 
 @media (max-width: 768px) {
     .udh-info-section img.udh-info-img {
@@ -41,7 +41,7 @@
 
 .menu-section .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 12px #DD1840; /* Increase shadow on hover */
+    box-shadow: 0 6px 12px #964B00; /* Increase shadow on hover */
 }
 
 .menu-section .card-img-top {

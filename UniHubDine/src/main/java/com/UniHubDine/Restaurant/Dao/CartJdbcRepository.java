@@ -34,7 +34,7 @@ public class CartJdbcRepository {
 		MenuItem mitem = new MenuItem();
 		mitem.setItemId(resultSet.getInt("item_id"));
 		mitem.setMenuId(resultSet.getInt("menu_id"));
-//		mitem.setCalories(resultSet.getInt("description"));
+		mitem.setCalories(resultSet.getInt("calories"));
 		mitem.setName(resultSet.getString("item_name"));
 		mitem.setPrice(resultSet.getDouble("price"));
 		mitem.setImageUrl(resultSet.getString("image_url"));
@@ -120,6 +120,20 @@ public class CartJdbcRepository {
 	public boolean updateItem(Integer itemId, String userId, Double calories, Double price) {
 		String sql = "UPDATE menu_items SET calories =?, price = ? where item_id =? and restaurant_name=?  ";
 		int rowsEffected =jdbcTemplate.update(sql ,calories,price,itemId,userId);
+		return rowsEffected>0;
+	}
+
+	public boolean deleteItem(Integer itemId, String userId) {
+		String sql = "delete from  menu_items where item_id =? and restaurant_name=?  ";
+		int rowsEffected =jdbcTemplate.update(sql ,itemId,userId);
+		return rowsEffected>0;
+	}
+
+	public boolean insertNewMenuItem(int menuId, String newItemName, Double newItemCalories, Double newItemPrice,
+			String userId) {
+		String sql = "INSERT INTO menu_items (menu_id , item_name , calories, price , restaurant_name) values "+
+			"(?,?,?,?,?)";
+		int rowsEffected =jdbcTemplate.update(sql ,menuId,newItemName, newItemCalories, newItemPrice,userId);
 		return rowsEffected>0;
 	}
 }

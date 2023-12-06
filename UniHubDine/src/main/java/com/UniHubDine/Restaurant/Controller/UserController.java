@@ -119,7 +119,11 @@ public class UserController {
 		try {
 			List<Menu> menus = menuService.findAll();
 			model.addAttribute("menus", menus);
-			return "PostLoginPages/DashBoard";
+			if (user.getUserRole().equalsIgnoreCase("REST")) {
+				return "redirect:/restDashBoard";
+			} else {
+				return "PostLoginPages/DashBoard";
+			}
 		} catch (Exception e) {
 			model.put("errorMsg", "Please provide the correct details");
 			return "LoginPage";

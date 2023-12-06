@@ -104,9 +104,10 @@ public class OrderJdbcRepository {
 
 	public List<OrderDetailDTO> findOrderDetailsByUserId(String userId) {
 		String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, "
-				+ "orde.status_order, orde.order_detail_id FROM unidinehub.orders ord "
+				+ "orde.status_order, orde.order_detail_id  , me.image_path FROM unidinehub.orders ord "
 				+ "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id "
 				+ "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id "
+				+ " JOIN unidinehub.menu me ON me.menu_id = men.menu_id "
 				+ "JOIN unidinehub.user us ON us.user_id = ord.user_id " + "WHERE men.restaurant_name  = ? and orde.status_order ='Pending'";
 
 		return jdbcTemplate.query(sql, new Object[] { userId }, new OrderDetailRowMapper());
@@ -114,10 +115,11 @@ public class OrderJdbcRepository {
 
 	public List<OrderDetailDTO> findCustomerOrderDetailsByUserId(String userId) {
 		String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, orde.status_order ,"
-				+ "orde.status_order, orde.order_detail_id FROM unidinehub.orders ord "
+				+ "orde.status_order, orde.order_detail_id , me.image_path FROM unidinehub.orders ord "
 				+ "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id "
 				+ "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id "
-				+ "JOIN unidinehub.user us ON us.user_id = ord.user_id " + "WHERE ord.user_id  = ?";
+				+" JOIN unidinehub.menu me ON me.menu_id = men.menu_id "
+				+ "JOIN unidinehub.user us ON us.user_id = ord.user_id " + "WHERE ord.user_id  = ? order by	 ord.order_timestamp desc";
 
 		return jdbcTemplate.query(sql, new Object[] { userId }, new OrderDetailRowMapper());
 	}
@@ -134,6 +136,7 @@ public class OrderJdbcRepository {
 			orderDetail.setItemName(rs.getString("item_name"));
 			orderDetail.setStatus_order(rs.getString("status_order"));
 			orderDetail.setOrder_detail_id(rs.getInt("order_detail_id"));
+			orderDetail.setImage_path(rs.getString("image_path"));
 			return orderDetail;
 		}
 	}

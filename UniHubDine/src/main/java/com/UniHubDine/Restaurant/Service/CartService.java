@@ -68,4 +68,15 @@ public class CartService {
 		boolean updateitem =  cartJdbcRepository.updateItem(itemId,userId,calories,price);
 		return updateitem;
 	}
+
+	public boolean deleteMenuItem(Integer itemId, String userId) {
+		boolean deleteItem =  cartJdbcRepository.deleteItem(itemId,userId);
+		return deleteItem;
+	}
+
+	public boolean insertNewItem(int menuId, String newItemName, Double newItemCalories, Double newItemPrice,
+			String userId) {
+		boolean insertItem =  cartJdbcRepository.insertNewMenuItem(menuId,newItemName, newItemCalories, newItemPrice,userId);
+		return insertItem;
+	}
 }

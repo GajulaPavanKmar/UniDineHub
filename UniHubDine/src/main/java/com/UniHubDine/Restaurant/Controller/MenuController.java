@@ -241,31 +241,5 @@ public class MenuController {
         return "Item removed from cart";
     }
     
-    @GetMapping("/restMenu")
-    public String showRestMenu(Model model) {
-		List<Menu> menus = menuService.findAll();
-		model.addAttribute("menus", menus);
-		return "PostLoginPages/RestuarantMenu";
-	}
     
-    @GetMapping("/restMenu/{menuId}/items")
-	public String manageRestMenu(@PathVariable("menuId") int menuId, Model model) {
-		User user = (User) model.getAttribute("user");
-		List<MenuItem> menuItems = cartService.getMIByMenuId(menuId, user.getUserId());
-		model.addAttribute("menuItems", menuItems);
-		model.addAttribute("menuId", menuId);
-		return "PostLoginPages/restMenuItems";
-	}
-    
-    @PostMapping("/updateMenu/{id}/menuItems")
-	public String updateRestMenu(@PathVariable("id") int menuId, 
-			@RequestParam("itemId") Integer itemId, @RequestParam("calories") Double calories, 
-			@RequestParam("price") Double price, Model model) {
-		User user = (User) model.getAttribute(	"user");
-		boolean updateValue = cartService.updateItem(itemId,user.getUserId(),calories,price);
-		List<MenuItem> menuItems = cartService.getMIByMenuId(menuId, user.getUserId());
-		model.addAttribute("menuItems", menuItems);
-		model.addAttribute("menuId", menuId);
-		return "PostLoginPages/restMenuItems";
-	}
 }

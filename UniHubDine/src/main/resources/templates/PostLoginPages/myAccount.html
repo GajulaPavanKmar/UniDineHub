@@ -17,21 +17,19 @@
 <section class="container my-5 menu-section">
 
 <div class="container mt-4">
-    <h1>Order List</h1>
+    <a class="menu-back-btn btn btn-warning mb-4" th:href="@{/menu}" role="button">Back</a>
+
+    <h1>Your previous order List</h1>
     <div class="row">
         <!-- Iterate over the orderList -->
-        <div th:each="order : ${orderList}" class="col-md-4 mb-4">
+        <div th:each="order : ${orderList}" class="col-md-3 mb-3">
             <div class="card">
-                <img th:src="sdlkj.pjmg" class="card-img-top" alt="Order Image">
+                <img th:src="@{'/images/menu/'+ ${order.image_path}}" class="card-img-top" alt="Order Image">
                 <div class="card-body">
                     <h5 class="card-title">
                         <div class="row">
-                            <div class="col-6 text-left">
                                 <span class="item-name" th:text="${order.itemName}">Item Name</span>
-                            </div>
-                            <div class="col-6 text-right">
                                 <span class="restaurant-name" th:text="${order.restaurantName}">Restaurant Name</span>
-                            </div>
                         </div>
                     </h5>
                     <br>
