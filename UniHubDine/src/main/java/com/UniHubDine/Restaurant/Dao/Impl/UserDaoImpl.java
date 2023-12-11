@@ -50,7 +50,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 
 	@Override
 	public int createNewUser(User user) {
-	    String sql = "INSERT INTO user(user_id, user_pswd, user_email, firstname, lastname, user_role) VALUES (?, ?, ?, ?, ?, ?);";
+	    String sql = "INSERT INTO user(user_id, user_pswd, user_email, firstname, lastname, user_role, phone_number) VALUES (?, ?, ?, ?, ?, ?,?);";
 
 	    return getJdbcTemplate().update(new PreparedStatementCreator() {
 
@@ -63,12 +63,11 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	            ps.setString(3, user.getUseremail());
 	            ps.setString(4, user.getFirstName());
 	            ps.setString(5, user.getLastName());
-	            ps.setString(6, "USER"); // Setting the default value for user_role
-
+	            ps.setString(6, "USER"); 
+	            ps.setLong(7, user.getPhoneNumber());
 	            return ps;
 	        }
 	    });
 	}
-
 
 }

@@ -104,7 +104,7 @@ public class OrderJdbcRepository {
 
 	public List<OrderDetailDTO> findOrderDetailsByUserId(String userId) {
 		String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, "
-				+ "orde.status_order, orde.order_detail_id  , me.image_path FROM unidinehub.orders ord "
+				+ "orde.status_order, orde.order_detail_id  , me.image_path, us.phone_number FROM unidinehub.orders ord "
 				+ "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id "
 				+ "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id "
 				+ " JOIN unidinehub.menu me ON me.menu_id = men.menu_id "
@@ -115,7 +115,7 @@ public class OrderJdbcRepository {
 
 	public List<OrderDetailDTO> findCustomerOrderDetailsByUserId(String userId) {
 		String sql = "SELECT us.FIRSTNAME, men.restaurant_name, ord.order_timestamp, ord.status, orde.quantity, (orde.quantity * orde.price) as total_price, men.item_name, orde.status_order ,"
-				+ "orde.status_order, orde.order_detail_id , me.image_path FROM unidinehub.orders ord "
+				+ "orde.status_order, orde.order_detail_id , me.image_path, us.phone_number FROM unidinehub.orders ord "
 				+ "JOIN unidinehub.order_details orde ON ord.order_id = orde.order_id "
 				+ "JOIN unidinehub.menu_items men ON men.item_id = orde.item_id "
 				+" JOIN unidinehub.menu me ON me.menu_id = men.menu_id "
@@ -137,6 +137,8 @@ public class OrderJdbcRepository {
 			orderDetail.setStatus_order(rs.getString("status_order"));
 			orderDetail.setOrder_detail_id(rs.getInt("order_detail_id"));
 			orderDetail.setImage_path(rs.getString("image_path"));
+			orderDetail.setPhone_number(rs.getString("phone_number"));
+
 			return orderDetail;
 		}
 	}

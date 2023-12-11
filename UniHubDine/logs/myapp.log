@@ -1,218 +1,114 @@
-2023-12-06 00:23:18 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 00:26:59 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 00:49:21 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 00:53:38 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
-2023-12-06 00:53:38 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-2023-12-06 00:54:00 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-2023-12-06 00:57:51 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'userId' for method parameter type String is not present]
-2023-12-06 00:57:51 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-2023-12-06 00:59:52 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [java.lang.NullPointerException: Cannot invoke "com.UniHubDine.Restaurant.Model.User.getUserId()" because "user" is null]
-2023-12-06 00:59:52 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-2023-12-06 01:00:33 ERROR org.thymeleaf.TemplateEngine - [THYMELEAF][http-nio-8080-exec-6] Exception processing template "PostLoginPages/RestuarantMenu": An error happened during template parsing (template: "class path resource [templates/PostLoginPages/RestuarantMenu.html]")
-org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/PostLoginPages/RestuarantMenu.html]")
-	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
-	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
-	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
-	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:328)
-	at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:158)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "user.firstName" (template: "PostLoginPages/RestuarantMenu" - line 22, col 9)
-	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
-	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
-	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
-	... 56 common frames omitted
-Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "user.firstName" (template: "PostLoginPages/RestuarantMenu" - line 22, col 9)
-	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
-	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
-	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
-	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96)
-	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
-	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
-	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
-	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
-	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
-	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
-	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
-	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
-	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
-	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
-	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
-	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
-	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
-	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
-	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
-	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
-	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
-	... 58 common frames omitted
-Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'firstName' cannot be found on null
-	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:218)
-	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:105)
-	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:410)
-	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:96)
-	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114)
-	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
-	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
-	... 83 common frames omitted
-2023-12-06 01:00:33 ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/UniDineHub] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/PostLoginPages/RestuarantMenu.html]")] with root cause
-org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property or field 'firstName' cannot be found on null
-	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:218)
-	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:105)
-	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:410)
-	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:96)
-	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:114)
-	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:338)
-	at org.thymeleaf.spring6.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
-	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
-	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
-	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:96)
-	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
-	at org.thymeleaf.standard.expression.AdditionExpression.executeAddition(AdditionExpression.java:89)
-	at org.thymeleaf.standard.expression.ComplexExpression.executeComplex(ComplexExpression.java:62)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:112)
-	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
-	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
-	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
-	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
-	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
-	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
-	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
-	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
-	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
-	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
-	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
-	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
-	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
-	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
-	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
-	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
-	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
-	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
-	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
-	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
-	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1415)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1159)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1098)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.filters.CorsFilter.handleNonCORS(CorsFilter.java:328)
-	at org.apache.catalina.filters.CorsFilter.doFilter(CorsFilter.java:158)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-2023-12-06 01:02:27 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:07:41 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:09:11 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-8][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
-2023-12-06 01:10:08 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:10:29 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:10:45 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:11:02 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:11:12 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:11:19 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:11:31 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:12:54 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:12:57 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:13:07 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:13:22 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 01:13:44 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:11:28 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-5][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:12:18 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-3][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:13:43 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-6][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:13:47 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-7][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:14:02 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:14:04 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:14:45 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:17:28 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:17:50 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:18:07 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:18:32 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public java.lang.String com.UniHubDine.Restaurant.Controller.UserController.signup(com.UniHubDine.Restaurant.Model.User,org.springframework.ui.ModelMap): [Field error in object 'user' on field 'phoneNumber': rejected value [8899089878]; codes [typeMismatch.user.phoneNumber,typeMismatch.phoneNumber,typeMismatch.int,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.phoneNumber,phoneNumber]; arguments []; default message [phoneNumber]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'phoneNumber'; For input string: "8899089878"]] ]
+2023-12-06 11:18:32 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-7][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:19:19 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:19:22 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:19:25 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:19:25 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:19:26 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:19:42 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.Error: Unresolved compilation problem: <EOL>?The method setInt(int, int) in the type PreparedStatement is not applicable for the arguments (int, Long)<EOL>]
+2023-12-06 11:19:42 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-3][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:20:02 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:20:02 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:20:30 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-3][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:20:54 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar []]
+2023-12-06 11:20:54 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:21:28 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:21:28 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:21:31 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-7][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:21:47 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; Data truncation: Out of range value for column 'phone_number' at row 1]
+2023-12-06 11:21:47 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-5][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:22:30 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:22:34 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:23:35 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@310b8c66 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 11:23:43 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 11:23:52 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-6][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:23:56 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-3][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:24:45 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; Data truncation: Out of range value for column 'phone_number' at row 1]
+2023-12-06 11:24:45 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-7][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:28:37 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:28:40 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-10][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:29:03 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-8][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:31:56 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-8][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:31:58 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:32:42 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; Duplicate entry 'kuygyuk' for key 'user.user_id']
+2023-12-06 11:32:42 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:34:33 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:35:03 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public java.lang.String com.UniHubDine.Restaurant.Controller.UserController.signup(com.UniHubDine.Restaurant.Model.User,org.springframework.ui.ModelMap): [Field error in object 'user' on field 'phoneNumber': rejected value [sdflsldkjfg]; codes [typeMismatch.user.phoneNumber,typeMismatch.phoneNumber,typeMismatch.java.lang.Long,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [user.phoneNumber,phoneNumber]; arguments []; default message [phoneNumber]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Long' for property 'phoneNumber'; For input string: "sdflsldkjfg"]] ]
+2023-12-06 11:35:03 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-6][errorPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template errorPage, line 28, col 10. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:35:10 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:35:12 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:36:26 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-8][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:36:26 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-10][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:41:31 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:41:43 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 11:41:53 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:29:08 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 12:32:27 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2244523f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3a448936 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@d25fe5e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@d70906f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4dd587ca (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@53c6aa7f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@71b36957 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@78c97ce6 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@19435fe2 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:31 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7f308be7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2023-12-06 12:32:36 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-6][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:32:42 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][PostLoginPages/DashBoard] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/DashBoard, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:32:43 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-7][PostLoginPages/Menu] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/Menu, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:33:00 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][PostLoginPages/Menu] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/Menu, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:33:41 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-9][PostLoginPages/Menu] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/Menu, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:33:49 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][PostLoginPages/ViewCart] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/ViewCart, line 12, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:33:52 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-10][PostLoginPages/orderConfirm] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/orderConfirm, line 13, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:33:55 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-6][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:35:30 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 12:36:00 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 12:38:59 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 12:39:18 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:46:55 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 12:48:41 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 14:12:20 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h7m51s552ms172µs).
+2023-12-06 15:13:31 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m40s76ms73µs800ns).
+2023-12-06 15:37:10 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 16:04:36 WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2023-12-06 16:04:37 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-06 16:04:38 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2023-12-06 16:04:38 ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-12-06 16:06:18 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-5][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:06:23 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-7][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:06:49 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:13:13 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-6][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:13:17 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][SignUp] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template SignUp, line 11, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:13:35 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-6][LoginPage] Deprecated unwrapped fragment expression "Navbar :: Navbar" found in template LoginPage, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{Navbar :: Navbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:13:42 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][PostLoginPages/DashBoard] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/DashBoard, line 14, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:13:56 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][PostLoginPages/Menu] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/Menu, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:14:06 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-3][PostLoginPages/Menu] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/Menu, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:14:24 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][PostLoginPages/ViewCart] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/ViewCart, line 12, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:14:32 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-10][PostLoginPages/orderConfirm] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/orderConfirm, line 13, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:14:35 WARN  o.t.s.p.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][PostLoginPages/Menu] Deprecated unwrapped fragment expression "PostLoginPages/LoginNavbar :: LoginNavbar" found in template PostLoginPages/Menu, line 17, col 6. Please use the complete syntax of fragment expressions instead ("~{PostLoginPages/LoginNavbar :: LoginNavbar}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2023-12-06 16:29:35 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m32s926ms551µs300ns).
+2023-12-06 18:36:36 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m29s605ms701µs600ns).

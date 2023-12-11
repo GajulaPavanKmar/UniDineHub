@@ -8,7 +8,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String userRole;
-
+	private Long phoneNumber;
 	public String getFirstName() {
 		return firstName;
 	}
@@ -57,11 +57,22 @@ public class User {
 		this.userRole = userRole;
 	}
 
+	
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", useremail=" + useremail + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", userRole=" + userRole + "]";
+				+ firstName + ", lastName=" + lastName + ", userRole=" + userRole + ", phoneNumber=" + phoneNumber
+				+ "]";
 	}
 
+	
 	
 }

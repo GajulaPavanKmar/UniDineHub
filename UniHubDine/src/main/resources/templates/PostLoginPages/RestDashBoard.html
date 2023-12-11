@@ -38,8 +38,8 @@
         <table class="table table-striped mt-3">
             <thead class="table-dark">
                 <tr>
-                    <th>User ID</th>
-                    <th>Restaurant Name</th>
+                    <th>Ordered by</th>
+                    <th>Contact Number</th>
                     <th>Order Placed on</th>
                     <th>Status</th>
                     <th>Quantity</th>
@@ -52,7 +52,7 @@
                 <!-- Iterate over the orderList -->
                 <tr th:each="order : ${orderList}">
                     <td th:text="${order.firstname}">User ID</td>
-                    <td th:text="${order.restaurantName}">Restaurant Name</td>
+                    <td th:text="${order.phone_number}">Restaurant Name</td>
                     <td th:text="${order.orderTimestamp}">Order Timestamp</td>
                     <td th:text="${order.status}">Status</td>
                     <td th:text="${order.quantity}">Quantity</td>

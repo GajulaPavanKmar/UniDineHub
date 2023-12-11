@@ -14,6 +14,7 @@ public class OrderDetailDTO {
     private int orderId;
     private String status_order;
     private String image_path;
+    private String phone_number;
     
 	public int getOrder_detail_id() {
 		return order_detail_id;
@@ -84,12 +85,20 @@ public class OrderDetailDTO {
 	public void setImage_path(String image_path) {
 		this.image_path = image_path;
 	}
+	public String getPhone_number() {
+		return phone_number;
+	}
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
 	@Override
 	public String toString() {
 		return "OrderDetailDTO [order_detail_id=" + order_detail_id + ", firstname=" + firstname + ", restaurantName="
 				+ restaurantName + ", orderTimestamp=" + orderTimestamp + ", status=" + status + ", quantity="
 				+ quantity + ", totalPrice=" + totalPrice + ", itemName=" + itemName + ", orderId=" + orderId
-				+ ", status_order=" + status_order + ", image_path=" + image_path + "]";
+				+ ", status_order=" + status_order + ", image_path=" + image_path + ", phone_number=" + phone_number
+				+ "]";
 	}
+
 	
 }
