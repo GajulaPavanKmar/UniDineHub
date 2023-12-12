@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<html xmlns:th="http://www.thymeleaf.org">
 </head>
 <body>
 
@@ -21,8 +21,8 @@
             <div class="col-md-3 footer-col">
                 <h5>Legal</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#terms">Terms & Conditions</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a th:href="@{legal}">Terms & Conditions</a></li>
+                    <li><a th:href="@{privacy}">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="col-md-3 footer-col">

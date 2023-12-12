@@ -205,5 +205,13 @@ public class UserController {
 
         return "Order status changed";
     }
-
+	
+	@GetMapping("/legal")
+	public String legal() {
+		return "LegalPage";
+	}
+	@GetMapping("/privacy")
+	public String privacy() {
+		return "PrivacyPage";
+	}
 }

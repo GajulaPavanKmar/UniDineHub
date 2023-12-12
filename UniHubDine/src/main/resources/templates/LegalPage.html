@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Legal | UniHubDine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+        <link rel="stylesheet" th:href="@{/css/homestyles.css}">
+</head>
+<body>
+<div th:replace="Navbar :: Navbar"></div>
+<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center mb-4">Legal Information</h2>
+
+                <div class="mb-5">
+                    <h3>Legal</h3>
+                    <p>At UniDineHub, we are committed to upholding the highest standards of legal and ethical conduct. Our platform operates in full compliance with applicable laws and regulations, ensuring a trustworthy and secure environment for our users.</p>
+                </div>
+                <div class="mb-5">
+                    <h3>Terms & Conditions</h3>
+                    <p><strong>User Agreement:</strong> By using UniDineHub, you agree to our Terms & Conditions, which govern your use of our services. These terms include guidelines on acceptable use, user responsibilities, and our service provisions.</p>
+                    <p><strong>Service Usage:</strong> Our Terms & Conditions outline the proper and intended use of UniDineHub. We encourage users to engage with our services responsibly and respectfully.</p>
+                    <p><strong>Changes and Updates:</strong> We reserve the right to modify these terms as necessary. Users will be notified of any significant changes, and continued use of the service will constitute acceptance of the new terms.</p>
+                    <a href="#" class="btn btn-primary">Read our full Terms & Conditions</a>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+<div th:replace="~{Footer :: Footer}"></div>
+
+
+</body>
+</html>
