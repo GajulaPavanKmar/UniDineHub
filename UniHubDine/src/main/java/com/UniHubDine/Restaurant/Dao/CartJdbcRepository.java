@@ -53,6 +53,7 @@ public class CartJdbcRepository {
 		menuItem.setName(resultSet.getString("item_name"));
 		menuItem.setPrice(resultSet.getDouble("price"));
 		menuItem.setImageUrl(resultSet.getString("image_path"));
+		menuItem.setRestuarantName(resultSet.getString("restaurant_name"));
 		cartItem.setMenuItem(menuItem);
 
 		return cartItem;
@@ -106,7 +107,7 @@ public class CartJdbcRepository {
 
 	// View Cart Items
 	public List<CartItem> viewCartItems(String userId) {
-		String sql = "SELECT ci.*, mi.menu_id , mi.item_name , (ci.quantity*mi.price) as price,  m.image_path  " + "FROM cart_items ci "
+		String sql = "SELECT ci.*, mi.menu_id , mi.item_name , (ci.quantity*mi.price) as price,  m.image_path, mi.restaurant_name   " + "FROM cart_items ci "
 				+ "JOIN menu_items mi ON ci.item_id = mi.item_id  JOIN menu m ON m.menu_id = mi.menu_id " + "WHERE ci.user_id = ?";
 		return jdbcTemplate.query(sql, cartItemRowMapper, userId);
 	}

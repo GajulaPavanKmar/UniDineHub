@@ -28,9 +28,8 @@
                         <div class="item-info w-100 d-flex justify-content-between">
                             <div>
                                 <h5 th:text="${cartItem.menuItem.name}">Product Name</h5>
-                                
-                                <p th:text="${cartItem.menuItem.description}">Description</p>
                                 <div class="d-flex align-items-center">
+                                   <span th:text="${cartItem.menuItem.restuarantName}">Restaurant Name</span><br>&nbsp
                                     <span class="badge bg-secondary" th:text="${cartItem.quantity}">Quantity</span>
                                 </div>
                                 <br>

@@ -29,6 +29,10 @@
 <div class="alert alert-success" role="alert"th:if="${errorMsg}">
     <p th:text="${errorMsg}">Default message</p>
 </div>
+<div class="alert alert-success" role="alert"th:if="${message}">
+    <p th:text="${message}"></p>
+    <a th:href="@{/userCart}" class="alert-link">Go to Cart</a>
+</div>
     <div class="menu-items">
       <div class="row" id="menuItemsContainer">
         <div th:each="menuItem : ${menuItems}"
