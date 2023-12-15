@@ -19,12 +19,12 @@
 <section class="menu-section py-5">
   <div class="container">
     <a class="menu-back-btn btn btn-warning mb-4" th:href="@{/menu}" role="button">Back</a>
-    <h2 class="menu-title text-center mb-4">Drinks Menu</h2>
+    <h2 class="menu-title text-center mb-4"> Menu</h2>
 
     <div class="menu-sort-buttons text-center mb-4">
-      <button id="sortByPrice" class="btn btn-secondary">Sort by Price</button>
-      <button id="sortByName" class="btn btn-secondary">Sort by Name</button>
-      <button id="sortByRestaurantName" class="btn btn-secondary">Sort by Restaurant Name</button>
+      <button id="sortByPrice" class="btn btn-secondary">Sort by Price &#8593;&#8595;</button>
+      <button id="sortByName" class="btn btn-secondary">Sort by Name &#8593;&#8595;</button>
+      <button id="sortByRestaurantName" class="btn btn-secondary">Sort by Restaurant Name &#8593;&#8595;</button>
     </div>
 <div class="alert alert-success" role="alert"th:if="${errorMsg}">
     <p th:text="${errorMsg}">Default message</p>

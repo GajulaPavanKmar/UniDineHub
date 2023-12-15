@@ -7,13 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/cartstyles.css}">
     <link rel="stylesheet" th:href="@{/css/lnavbar.css}">
+        <link rel="stylesheet" th:href="@{/css/homestyles.css}">
+    
 </head>
 <body>
 <div th:replace="PostLoginPages/LoginNavbar :: LoginNavbar"></div>
 
+
+
     <div class="container py-5">
-        <header class="mb-4 text-center">
-            <h1>Your Shopping Cart</h1>
+        <header class="mb-4 text-left">
+            <h1>Your  Cart</h1>
+            <div th:if="${message}">
+				    <div class="alert alert-danger" role="alert">
+				    <p th:text="${message}">Default message</p>
+					</div>
+</div>
         </header>
         <div class="row">
             <div class="col-lg-8">
@@ -38,7 +47,7 @@
 					        </form>                            
         				</div>
                             <div class="item-price text-end">
-                                <span class="fw-bold" th:text="${cartItem.menuItem.price}">$90.00</span>
+									<span class="fw-bold" th:text="'$' + ${cartItem.menuItem.price}">$90.00</span>
                             </div>
                         </div>
                     </div>
@@ -103,4 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
  
 </body>
+<div th:replace="~{Footer :: Footer}"></div>
+
 </html>

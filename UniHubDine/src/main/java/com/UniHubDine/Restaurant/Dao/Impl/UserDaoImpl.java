@@ -30,7 +30,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	}
 	@Override
 	public User getUserById(String userId) {
-		String sql  = "select user_pswd,user_email,firstname,lastname,user_role from user where user_id =? ";
+		String sql  = "select cast(aes_decrypt(unhex(user_pswd),'secret') as char(50)),user_email,firstname,lastname,user_role from user where user_id =? ";
 		
 		return getJdbcTemplate().queryForObject(sql, new Object[] {userId }, new RowMapper<User>() {
 			
@@ -50,7 +50,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 
 	@Override
 	public int createNewUser(User user) {
-	    String sql = "INSERT INTO user(user_id, user_pswd, user_email, firstname, lastname, user_role, phone_number) VALUES (?, ?, ?, ?, ?, ?,?);";
+	    String sql = "INSERT INTO user(user_id, user_pswd, user_email, firstname, lastname, user_role, phone_number) VALUES (?, hex(aes_encrypt(?,'secret'))), ?, ?, ?, ?,?);";
 
 	    return getJdbcTemplate().update(new PreparedStatementCreator() {
 

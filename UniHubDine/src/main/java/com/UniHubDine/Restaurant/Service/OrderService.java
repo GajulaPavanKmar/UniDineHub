@@ -67,4 +67,9 @@ public class OrderService {
     public void updateOrderDetailId(int orderDetailId) {
     	orderJdbcRepository.updateOrder(orderDetailId);
     }
+
+	public void updateOrderDetailIdCancel(int orderId) {
+    	orderJdbcRepository.updateOrderCancel(orderId);
+		
+	}
 }

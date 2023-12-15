@@ -23,9 +23,12 @@
         <div class="col-md-6">
             <div class="my-login-card">
                 <h2>Welcome Back!</h2>
-                <div class="alert alert-success" role="alert"th:if="${message}">
+                <div th:if="${message}">
+				    <div class="alert alert-danger" role="alert">
 				    <p th:text="${message}">Default message</p>
+					</div>
 				</div>
+				
                 <form th:action="@{/login}" method="post" class="my-login-form">
                     <div class="mb-4">
                         <label for="login-username" class="form-label">Username</label>
@@ -39,6 +42,7 @@
 
                     <button type="submit" class="btn btn-danger">Log In</button>
                 </form>
+                <br>
                 <p class="text-center my-login-new-account">New here? <a th:href="@{/signup}">Create an account</a></p>
             </div>
         </div>
@@ -46,6 +50,8 @@
 </div>
 
 <div th:replace="~{Footer :: Footer}"></div>
-
+<script>
+$('.alert').alert()
+</script>
 </body>
 </html>

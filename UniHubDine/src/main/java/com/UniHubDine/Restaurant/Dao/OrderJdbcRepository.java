@@ -58,6 +58,10 @@ public class OrderJdbcRepository {
 		jdbcTemplate.update(sql,orderDetailId);
 	}
 
+	public void updateOrderCancel(int orderDetailId) {
+		String sql = "UPDATE order_details SET status_order = 'Cancelled' WHERE order_detail_id = ?";
+		jdbcTemplate.update(sql,orderDetailId);
+	}
 	public int createOrder(Order order) {
 		String sql = "INSERT INTO orders (user_id, order_timestamp, status, pickup_timestamp) VALUES (?, ?, ?, ?)";
 

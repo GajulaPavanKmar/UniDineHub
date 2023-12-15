@@ -149,6 +149,7 @@ public class MenuController {
             return "redirect:/login";
         }
         cartService.deleteCart(cartItemId);
+    	redirectAttributes.addFlashAttribute("message", "Item removed from the cart");
 		return "redirect:/userCart";    
 	}
 

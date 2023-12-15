@@ -60,11 +60,23 @@ public class CartJdbcRepository {
 	};
 
 	public void addToCart(Integer cartId, String userId, Integer itemId, Integer quantity) {
-		String sql = "INSERT INTO cart_items (cart_id, user_id, item_id, quantity) VALUES (?, ?, ?, ?)";
-		jdbcTemplate.update(sql, cartId, userId, itemId, quantity);
+		String checkSql = "SELECT quantity FROM cart_items WHERE cart_id = ? AND user_id = ? AND item_id = ?";
+
+	    try {
+	        Integer existingQuantity = jdbcTemplate.queryForObject(checkSql, new Object[]{cartId, userId, itemId}, Integer.class);
+
+	        if (existingQuantity != null) {
+	            String updateSql = "UPDATE cart_items SET quantity = quantity + ? WHERE cart_id = ? AND user_id = ? AND item_id = ?";
+	            jdbcTemplate.update(updateSql, quantity, cartId, userId, itemId);
+	        }
+	    } catch (EmptyResultDataAccessException e) {
+	        String insertSql = "INSERT INTO cart_items (cart_id, user_id, item_id, quantity) VALUES (?, ?, ?, ?)";
+	        jdbcTemplate.update(insertSql, cartId, userId, itemId, quantity);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 	}
 
-	// Insert a new cart into the database
 	public void createCart(Cart cart) {
 		String sql = "INSERT INTO carts (cart_id, user_id, timestamp) VALUES (?,?, ?)";
 		jdbcTemplate.update(sql, cart.getCartId(), cart.getUserId(), cart.getTimestamp());

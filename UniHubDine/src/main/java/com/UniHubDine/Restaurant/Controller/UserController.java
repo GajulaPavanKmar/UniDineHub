@@ -93,8 +93,8 @@ public class UserController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String welcomePage(ModelMap model, @RequestParam String userId, @RequestParam String password,
 			RedirectAttributes redirectAttributes) {
-		User user = userService.getUserByUserId(userId);
 		try {
+			User user = userService.getUserByUserId(userId);
 			if (user.getPassword().equals(password)) {
 				model.addAttribute("user", user);
 				List<Menu> menus = menuService.findAll();
@@ -105,10 +105,10 @@ public class UserController {
 					return "PostLoginPages/DashBoard";
 				}
 			}
-			model.put("errorMsg", "Please provide the correct details");
+			model.put("message", "Please provide the correct details");
 			return "LoginPage";
 		} catch (Exception e) {
-			model.put("errorMsg", "Please provide the correct details");
+			model.put("message", "Please provide the correct details");
 			return "LoginPage";
 		}
 	}
@@ -156,7 +156,7 @@ public class UserController {
 		return "PostLoginPages/RestDashBoard";
 	}
 
-	@GetMapping("/orderReady/{orderId}")
+	@GetMapping("/orderReady/{orderId}/ready")
 	public String makeOrderReady(@PathVariable("orderId") Integer orderId, ModelMap model) {
 		User user = (User) model.getAttribute("user");
 		orderservice.updateOrderDetailId(orderId);
@@ -165,7 +165,15 @@ public class UserController {
 
 		return "PostLoginPages/RestDashBoard";
 	}
-	
+	@GetMapping("/orderReady/{orderId}/cancel")
+	public String makeOrdercancel(@PathVariable("orderId") Integer orderId, ModelMap model) {
+		User user = (User) model.getAttribute("user");
+		orderservice.updateOrderDetailIdCancel(orderId);
+		List<OrderDetailDTO> orderList = orderservice.getOrderDetails(user.getUserId());
+		model.addAttribute("orderList", orderList);
+
+		return "PostLoginPages/RestDashBoard";
+	}
 	@GetMapping("/api/dashboard")
 	@ResponseBody
     public ResponseEntity<?> getDashboard() {

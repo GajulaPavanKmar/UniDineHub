@@ -24,7 +24,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                                    <li class="nav-item"> <a class="nav-link" th:href="@{/restMenu}"></i> Menu</a></li>                
+                                    <li class="nav-item"> <a class="nav-link" th:href="@{/restMenu}"></i> Manage Menu</a></li>                
                                     <li class="nav-item"> <a class="nav-link" th:href="@{/home}"></i> Logout</a></li>                
                 </ul>
             </div>
@@ -46,6 +46,7 @@
                     <th>Total Price</th>
                     <th>Item Name</th>
                     <th>Ready?</th>
+                    <th>Cancel?</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,7 +59,8 @@
                     <td th:text="${order.quantity}">Quantity</td>
                     <td th:text="${order.totalPrice}">Total Price</td>
                     <td th:text="${order.itemName}">Item Name</td>
-                    <td><a th:href="@{/orderReady/{orderId}(orderId=${order.order_detail_id})}" class="btn btn-danger">Ready for Pickup</a></td>
+                    <td><a th:href="@{/orderReady/{orderId}/ready(orderId=${order.order_detail_id})}" class="btn btn-success">Ready for Pickup</a></td>
+                    <td><a th:href="@{/orderReady/{orderId}/cancel(orderId=${order.order_detail_id})}" class="btn btn-danger">Cancel</a></td>
                 </tr>
             </tbody>
         </table>

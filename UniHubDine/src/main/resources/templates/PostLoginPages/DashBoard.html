@@ -14,8 +14,14 @@
 <div th:replace="PostLoginPages/LoginNavbar :: LoginNavbar"></div>
 
 <section class="container my-5 udh-info-section">
-<br>
-<br>
+	<div class="container my-3">
+		<div class="row">
+			<div class="col-12">
+				<h1 th:text="'Welcome, ' + ${user.firstName} + '!'"></h1>
+			</div>
+		</div>
+	</div>
+	<br>
     <div class="row">
         <!-- Menu -->
         <div class="col-md-4 text-center udh-info-col">
